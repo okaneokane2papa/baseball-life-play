@@ -20,7 +20,7 @@
 <meta name="apple-mobile-web-app-title" content="本格野球人生シミュレーション">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#1a2a3a">
-<title>⚾ 本格野球人生シミュレーション『baseball life ∞infinity』【無料体験版：青春高校野球編】(Version 24.30 Lite)</title>
+<title>⚾ 本格野球人生シミュレーション『baseball life ∞infinity』【無料体験版：青春高校野球編】(Version 24.40 Lite)</title>
 <style>
   :root {
     --bg-primary: #0f172a;
@@ -3404,7 +3404,7 @@
   }
 
 
-  /* 📱【Version 24.30 スマホ画面UI抜本改善（ハイブリッド統合推奨案：案A＋案B＋案C）】 */
+  /* 📱【Version 24.40 スマホ画面UI抜本改善（ハイブリッド統合推奨案：案A＋案B＋案C）】 */
   @media(max-width: 767px) {
     /* 1) 上部タブバー＆ロッカールーム引継ぎボタンの360px幅完全収容（文字切れゼロ） */
     .tab-bar {
@@ -3493,7 +3493,7 @@
   }
 
 
-  /* 🔧【Version 24.30 Step 5 視覚検査フィードバック修正：タイトル・ロッカールーム・メイン盤面の1px単位最適化】 */
+  /* 🔧【Version 24.40 Step 5 視覚検査フィードバック修正：タイトル・ロッカールーム・メイン盤面の1px単位最適化】 */
   @media(max-width: 767px) {
     /* 1) グランドタイトル画面：NEW BALLPLAYERボタンの横溢れ完全解消＆サブタイトル美しい改行 */
     .lk-title-main-btn {
@@ -3606,7 +3606,7 @@
 </style>
 
 
-  <!-- PWA & Mobile App Support (v24.30) -->
+  <!-- PWA & Mobile App Support (v24.40) -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0b132b">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3692,7 +3692,7 @@
   <div class="cinema-vignette-layer"></div>
 
   <div id="opIgnitionLayer">
-    <div class="ignition-badge">⚾ ROYAL PHILHARMONIC 40 (DIATONIC REMASTER) &amp; JUPITER OP — v7.00 ARGON EDITION</div>
+    <div class="ignition-badge">⚾ 本格野球人生シミュレーション — baseball life ∞infinity</div>
     <h1 class="ignition-title">白球の軌跡、無限の人生</h1>
     <p class="ignition-sub">
       夕暮れのグラウンドで白球を握りしめたあの日から、<br>
@@ -3789,7 +3789,7 @@
       <div class="lk-hero-banner">
         <div class="lk-hero-kicker">本格野球人生シミュレーション — 覚悟を問うロッカールーム</div>
         <div class="lk-hero-title">⚾ baseball life <span style="color:#38bdf8;">∞infinity</span></div>
-        <div class="lk-hero-sub">白球を握ったあの日から、君のリアルな野球人生が始まる—— <span style="color:#38bdf8; font-weight:bold;"><span id="lkDynamicVerLabel">(Version 24.30 体験版：青春高校野球編)</span></span></div>
+        <div class="lk-hero-sub">白球を握ったあの日から、君のリアルな野球人生が始まる—— <span style="color:#38bdf8; font-weight:bold;"><span id="lkDynamicVerLabel">(Version 24.40 体験版：青春高校野球編)</span></span></div>
         <div id="hankoStamp">
           <span>入団承認</span>
           <span id="hankoSubText" style="font-size:8.5px; margin-top:1px;">宮城・投手</span>
@@ -4172,25 +4172,6 @@
     <div id="specialsListContainer" style="display:flex; flex-direction:column; gap:8px; margin-top:10px;"></div>
     <button class="choice-btn" style="margin-top:15px; background:linear-gradient(135deg, #8b5cf6, #7c3aed); color:#fff;" onclick="closeSpecialsModal(); openSpecialTrainingModal();">⚡ 新たな特殊能力を特訓・開眼する ↗</button>
     <button class="choice-btn" style="margin-top:8px;" onclick="closeSpecialsModal()">閉じる</button>
-  </div>
-</div>
-
-<!-- 🖼️ 【Version 23.90 システム新設】キャラクター画像・ポートレート設定モーダル -->
-<div class="modal-overlay" id="portraitSettingsModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:2600; background:rgba(0,0,0,0.85); justify-content:center; align-items:center;" onclick="if(event.target===this)closeCustomPortraitModal()">
-  <div class="modal-box" style="max-height:88vh; overflow-y:auto; width:95%; max-width:480px; background:#0b1120; border:1px solid #38bdf8; border-radius:8px; padding:16px;">
-    <div class="modal-title" style="display:flex; justify-content:space-between; align-items:center;">
-      <span style="color:#38bdf8; font-size:14px; font-weight:bold;">🖼️ キャラクター画像・ポートレート設定</span>
-      <button class="btn btn-sm btn-outline" onclick="closeCustomPortraitModal()" style="font-size:11px; padding:2px 8px; border-color:#64748b; color:#94a3b8;">✕</button>
-    </div>
-    <div class="modal-desc" style="font-size:10.5px; color:#94a3b8; margin:8px 0 10px 0; line-height:1.4;">
-      Google ドライブの画像共有リンクやWeb画像URLを設定できます。<br>
-      未設定時は自動的に【公式ビジュアル体系】または【高品位エンブレム】が表示されます。
-    </div>
-    <div id="portraitSettingsList" style="display:flex; flex-direction:column; gap:8px;"></div>
-    <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:12px;">
-      <button class="btn btn-outline" onclick="resetCustomPortraits()" style="font-size:10.5px; padding:4px 10px; border-color:#64748b; color:#cbd5e1;">🔄 初期画像に戻す</button>
-      <button class="btn btn-primary" onclick="saveCustomPortraits()" style="font-size:11px; padding:5px 14px; background:#0284c7; border-color:#0284c7; color:#fff;">💾 保存して即時反映</button>
-    </div>
   </div>
 </div>
 
@@ -4752,9 +4733,9 @@
         <span style="font-size:13px; font-weight:900; color:#ffd700; white-space:nowrap; flex-shrink:0;">🏆 生涯公式記録・キャリア年鑑</span>
         <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center; justify-content:flex-end;">
           <button type="button" class="btn btn-outline" id="btnOpenHallOfFame" style="flex:0 0 auto; width:auto; white-space:nowrap; font-size:10.5px; padding:4px 10px; border:1px solid #e879f9; color:#e879f9; background:rgba(232,121,249,0.1); border-radius:6px; cursor:pointer;" onclick="openHallOfFameModal()">🏛️ 歴代殿堂記念館 ↗</button>
-          <button type="button" class="btn btn-outline" id="btnOpenStandings" style="flex:0 0 auto; width:auto; white-space:nowrap; font-size:10.5px; padding:4px 10px; border:1px solid #facc15; color:#facc15; background:rgba(250,204,21,0.1); border-radius:6px; cursor:pointer;" onclick="showPennantStandingsModal()">📊 セ・パ順位表 ↗</button>
-          <button type="button" class="btn btn-outline" style="flex:0 0 auto; width:auto; white-space:nowrap; font-size:10.5px; padding:4px 10px; border:1px solid #22c55e; color:#22c55e; background:rgba(34,197,94,0.1); border-radius:6px; cursor:pointer;" onclick="showBallparkManagementModal()">🏰 球団経営・球場開発 ↗</button>
-          <button type="button" class="btn btn-outline" style="flex:0 0 auto; width:auto; white-space:nowrap; font-size:10.5px; padding:4px 10px; border:1px solid #38bdf8; color:#38bdf8; background:rgba(56,189,248,0.1); border-radius:6px; cursor:pointer;" onclick="showDraftClassDashboardModal()">📊 ドラフト同期の現在 ↗</button>
+          <button type="button" class="btn btn-outline" id="btnOpenStandings" style="display:none; flex:0 0 auto; width:auto; white-space:nowrap; font-size:10.5px; padding:4px 10px; border:1px solid #facc15; color:#facc15; background:rgba(250,204,21,0.1); border-radius:6px; cursor:pointer;" onclick="showPennantStandingsModal()">📊 セ・パ順位表 ↗</button>
+          <button type="button" class="btn btn-outline" id="btnOpenBallparkMgmt" style="display:none; flex:0 0 auto; width:auto; white-space:nowrap; font-size:10.5px; padding:4px 10px; border:1px solid #22c55e; color:#22c55e; background:rgba(34,197,94,0.1); border-radius:6px; cursor:pointer;" onclick="showBallparkManagementModal()">🏰 球団経営・球場開発 ↗</button>
+          <button type="button" class="btn btn-outline" id="btnOpenDraftClassDash" style="display:none; flex:0 0 auto; width:auto; white-space:nowrap; font-size:10.5px; padding:4px 10px; border:1px solid #38bdf8; color:#38bdf8; background:rgba(56,189,248,0.1); border-radius:6px; cursor:pointer;" onclick="showDraftClassDashboardModal()">📊 ドラフト同期の現在 ↗</button>
           <button type="button" class="btn btn-outline" style="flex:0 0 auto; width:auto; white-space:nowrap; font-size:10.5px; padding:4px 10px; border:1px solid var(--accent); color:var(--accent); background:rgba(56,189,248,0.12); border-radius:6px; cursor:pointer;" onclick="openStatsModal()">📜 全画面アーカイブ ↗</button>
         </div>
       </div>
@@ -12709,9 +12690,15 @@ function renderRomanceCandidatesList() {
     if (isCurrentPartner) {
       actionBtn = `<span style="background:#10b981; color:#fff; font-size:10px; font-weight:bold; padding:2px 8px; border-radius:4px;">💖 交際中</span>`;
     } else if (canConfess) {
-      actionBtn = `<button class="btn btn-sm" onclick="confessToCandidate('${c.id}')" style="background:linear-gradient(135deg, #ec4899, #db2777); color:#fff; font-size:10px; font-weight:bold; padding:4px 8px; border-radius:4px; border:none; cursor:pointer;">💌 告白する</button>`;
+      actionBtn = `<div style="display:flex; gap:4px; flex-wrap:wrap; justify-content:flex-end;">
+        <button class="btn btn-sm" onclick="closeRomanceCandidatesModal(); openSingleHeroineActionModal(getKnownPartnerCandidates().find(x => x.id === '${c.id}' || x.name === '${c.name}'));" style="background:#0284c7; color:#fff; font-size:10px; font-weight:bold; padding:4px 8px; border-radius:4px; border:none; cursor:pointer;">☕ 誘う・贈る</button>
+        <button class="btn btn-sm" onclick="confessToCandidate('${c.id}')" style="background:linear-gradient(135deg, #ec4899, #db2777); color:#fff; font-size:10px; font-weight:bold; padding:4px 8px; border-radius:4px; border:none; cursor:pointer;">💌 告白する</button>
+      </div>`;
     } else if (!player.partner) {
-      actionBtn = `<span style="color:#94a3b8; font-size:9.5px;">絆Lv3で告白可能</span>`;
+      actionBtn = `<div style="display:flex; gap:4px; align-items:center; flex-wrap:wrap; justify-content:flex-end;">
+        <button class="btn btn-sm" onclick="closeRomanceCandidatesModal(); openSingleHeroineActionModal(getKnownPartnerCandidates().find(x => x.id === '${c.id}' || x.name === '${c.name}'));" style="background:#0284c7; color:#fff; font-size:10px; font-weight:bold; padding:4px 8px; border-radius:4px; border:none; cursor:pointer;">☕ 連絡・デート</button>
+        <span style="color:#94a3b8; font-size:9.5px;">(Lv3で告白可)</span>
+      </div>`;
     }
 
     // 🌟【Version 23.90 改修】未交際（現在付き合っていない）相手なら、絆レベル問わず誰でも「👋 交流を一区切り」可能に全面解放！
@@ -14222,7 +14209,7 @@ function resolveSixLayer(base, fatigue, env, opp, sit) {
   }
 
   let analystMod = (typeof player !== 'undefined' && player && player.dataAnalystBuff) ? 5 : 0;
-  let hardMod = (typeof player !== 'undefined' && player && player.difficulty === 'hard') ? -9 : -3; // 🔥 Version 24.30 全体難易度上昇(ノーマル-3 / ハード-9)
+  let hardMod = (typeof player !== 'undefined' && player && player.difficulty === 'hard') ? -9 : -3; // 🔥 Version 24.40 全体難易度上昇(ノーマル-3 / ハード-9)
   let lineageMod = (typeof player !== 'undefined' && player && (player.lineageMarkLevel || 1) > 1) ? -Math.min(8, ((player.lineageMarkLevel || 1) - 1) * 2) : 0;
   let tn = base + statusMod + motMod + env + opp + sit + Math.floor(specialMod) + analystMod + hardMod + lineageMod;
   tn = Math.max(5, Math.min(95, tn));
@@ -15663,7 +15650,102 @@ function openMaritalActionModal() {
 }
 
 // 💖 【項目8】自己投資画面から開く「彼女候補への能動アプローチ（デート・プレゼント・告白）」モーダル
-function openHeroineActiveApproachModal() { /* [TRIAL EDITION: POST-HS CODE PHYSICALLY REMOVED] */ return; }
+function openHeroineActiveApproachModal() {
+  if (!player || player.isRetired) return;
+  let isStudent = (player.category === "学童" || player.category === "中学" || player.category === "高校");
+
+  // すでに交際中（未婚）の恋人がいる場合：デート・プレゼント・自分からのプロポーズが可能！
+  if (player.partner && !player.partner.isMarried) {
+    let p = player.partner;
+    let dateCost = isStudent ? 0.3 : 3;
+    let ringCost = (player.category === "プロ" || player.category === "海外") ? 300 : 50;
+    let choices = [
+      {
+        text: `☕ 恋人・${p.name}を休日の特別デートに誘う [-${isStudent ? '3,000円' : formatSalary(dateCost)}]`,
+        sub: `二人で楽しい休日を過ごし、好感度+10%・疲労-20・やる気🔥絶好調！`,
+        action: () => {
+          closeDecisionModal();
+          if ((player.funds || 0) < dateCost) {
+            addLog("⚠️【資金不足】デート費用が足りません。", "drama");
+            updateUI(); return;
+          }
+          player.funds -= dateCost;
+          p.affection = Math.min(100, (p.affection || 85) + 10);
+          player.fatigue = Math.max(0, (player.fatigue || 0) - 20);
+          player.motivation = 5;
+          addLog(`💖【恋人デート】${p.name}と素敵な休日デートを楽しみ、互いの絆がいっそう深まった！(好感度: ${p.affection}% / 疲労-20)`, "milestone");
+          updateUI();
+        }
+      }
+    ];
+    if (player.age >= 20) {
+      choices.push({
+        text: `💍 婚約指輪を用意し、自分から『${p.name}』へプロポーズする！ [-${formatSalary(ringCost)}]`,
+        sub: `12月のイベントを待たず、今すぐ自分の決断でプロポーズして入籍・結婚へ進む！`,
+        action: () => {
+          closeDecisionModal();
+          if ((player.funds || 0) < ringCost) {
+            addLog(`⚠️【資金不足】婚約指輪と挙式準備資金（${formatSalary(ringCost)}）が足りません。`, "drama");
+            updateUI(); return;
+          }
+          player.funds -= ringCost;
+          p.isMarried = true;
+          p.marriedAge = player.age;
+          p.marriedTurn = turn;
+          p.maritalHarmony = 90;
+          player.motivation = 5;
+          playSceneBgm("wedding");
+          addLog(`🎊💍【プロポーズ大成功・祝結婚入籍！】夜景の見える特別な場所で婚約指輪を差し出し、${p.name}（${p.type}）へプロポーズ！涙ながらに「はい、一生あなたを支えます！」と頷き、正式に入籍しました！(夫婦円満度: 90%スタート / ${p.perk || '家庭の支え獲得'})`, "crit");
+          updateUI();
+          showLifeMilestonePopupModal(
+            "marriage",
+            `💍【祝・結婚披露宴】最愛の伴侶・${p.name}と永遠の誓い`,
+            `祝福の鐘が鳴り響く中、最愛のパートナー・<b>${p.name}（${p.type}）</b>と正式に入籍・挙式を挙げました！\n\n【夫婦サポート効果】: <b>${p.perk || "心身の安定と家庭の支え"}</b>\nこれからは一家の大黒柱として、二人三脚でさらなる高みを目指します！`,
+            "💍 愛する家族と共に新たなシーズンへ！"
+          );
+        }
+      });
+    }
+    choices.push({
+      text: "↩️ 戻る",
+      sub: "前の画面へ戻ります。",
+      action: () => { closeDecisionModal(); }
+    });
+    showDecisionModal(`💖【恋人アプローチ】${p.name}（交際中）`, `現在真剣交際中の ${p.name}（${p.type} / 好感度: ${p.affection || 85}%）へこちらからアプローチします。`, choices);
+    return;
+  }
+
+  let knownList = (typeof getKnownPartnerCandidates === "function") ? getKnownPartnerCandidates() : (player.knownPartnerCandidates || []);
+  if (!knownList || knownList.length === 0) {
+    addLog("💡 現在連絡先を知っている彼女候補がまだいません。日々の練習や大会を通じて新たな出会いを待ちましょう！", "normal");
+    return;
+  }
+
+  let candChoices = knownList.map(cand => {
+    let stars = "★".repeat(Math.min(5, cand.bondLevel || 1)) + "☆".repeat(Math.max(0, 5 - (cand.bondLevel || 1)));
+    return {
+      text: `🎀 ${cand.name}（${cand.type}） [現在: ${stars} Lv${cand.bondLevel || 1}]`,
+      sub: `${cand.perk || ''} — 連絡を取ってデートやプレゼント、告白を行います`,
+      action: () => {
+        closeDecisionModal();
+        openSingleHeroineActionModal(cand);
+      }
+    };
+  });
+
+  candChoices.push({
+    text: "↩️ 戻る",
+    sub: "アプローチせずに前の画面へ戻ります。",
+    action: () => { closeDecisionModal(); }
+  });
+
+  showDecisionModal(
+    "💖【彼女候補への能動アプローチ】相手を選択",
+    "こちらから連絡を取ってデートに誘ったり、プレゼントを贈って好感度（★）を高める相手を選んでください。",
+    candChoices
+  );
+}
+
 
 function openSingleHeroineActionModal(cand) {
   if (!cand) return;
@@ -18597,6 +18679,16 @@ function updateUI() {
   if (btnTwoWay) {
     btnTwoWay.style.display = isTwoWayUi ? "inline-block" : "none";
   }
+
+  // 🏆 公式記録・名鑑タブ内のプロ専用ボタン（セ・パ順位表／球団経営／ドラフト同期）の表示制御
+  const isProOrLater = !!(player && (player.category === "プロ" || player.category === "海外" || player.isRetired || (player.proEntryAge && player.age >= player.proEntryAge)));
+  const isTrialNow = (typeof IS_TRIAL_EDITION !== "undefined" && IS_TRIAL_EDITION);
+  const btnStandingsEl = document.getElementById("btnOpenStandings");
+  if (btnStandingsEl) btnStandingsEl.style.display = (!isTrialNow && isProOrLater) ? "inline-block" : "none";
+  const btnBallparkEl = document.getElementById("btnOpenBallparkMgmt");
+  if (btnBallparkEl) btnBallparkEl.style.display = (!isTrialNow && isProOrLater) ? "inline-block" : "none";
+  const btnDraftDashEl = document.getElementById("btnOpenDraftClassDash");
+  if (btnDraftDashEl) btnDraftDashEl.style.display = (!isTrialNow && (isProOrLater || (player && player.draftClassRoster && player.draftClassRoster.length > 0))) ? "inline-block" : "none";
 
   // ⚔️ 二刀流ローテーションHUDの動的描画（Version 23.90）
   const hudTwoWay = document.getElementById("twoWayRotationHUD");
@@ -28203,7 +28295,7 @@ async function cmdPractice(menu) {
   player.practiceCountYear[menu] = (player.practiceCountYear[menu] || 0) + 1;
 
   let fatInc = 10;
-  // 🔥【Version 24.30 難易度引き上げ】練習基礎疲労を+1pt引き上げ、休養・ピーキング管理の重要度を強化
+  // 🔥【Version 24.40 難易度引き上げ】練習基礎疲労を+1pt引き上げ、休養・ピーキング管理の重要度を強化
   if (menu === "P1") fatInc = isPitchMode ? 10 : 10; // コース投球 / ミート打撃
   else if (menu === "P2") fatInc = isPitchMode ? 12 : 15; // 変化球 / 長打ウエイト
   else if (menu === "P3") fatInc = isPitchMode ? 15 : 12; // ウエイト球威 / 走塁ダッシュ
@@ -28333,7 +28425,7 @@ async function cmdPractice(menu) {
   let curMot = player.motivation || 3;
   let motMult = motCoeffs[curMot] || 1.0;
 
-  // 🔥【Version 24.30 全体難易度引き上げ】基礎練習成長係数を0.92倍に引き締め（ハードはさらに0.78倍）
+  // 🔥【Version 24.40 全体難易度引き上げ】基礎練習成長係数を0.92倍に引き締め（ハードはさらに0.78倍）
   growth *= 0.92;
   if (player.difficulty === 'hard') growth *= 0.78;
   // 手応えランダム引き締め（大成功16% [1.45倍]、通常66%、集中散漫18% [0.5倍]）
@@ -29514,7 +29606,245 @@ const PARTNER_ROSTER_CANDIDATES = [
   { id: "chiharu", name: "如月 千春", era: "adult", age: 26, type: "遠征先老舗名門ホテルの若女将", perk: "【至極の宿場休養】遠征疲労完全リセット、遠征試合スタッツ+10%", desc: "常宿として利用する老舗名門ホテルの気品あふれる若女将。最高の温泉と旬の会席料理、細やかな心遣いで過酷な遠征の疲れを癒やす。" }
 ];
 
-async function checkLifeAndDramaEvents() { /* [TRIAL EDITION: POST-HS CODE PHYSICALLY REMOVED] */ return; }
+async function checkLifeAndDramaEvents() {
+  if (player.isRetired) return;
+  if (player.isDraftMeetingActive || player.draftMeetingTriggeredThisTurn) return;
+  let curDecModal = document.getElementById("decisionModal");
+  // 🌟【Version 23.90 項目5修正】懐妊中の月次カウントダウン＆出産イベントだけは他のモーダル表示中でも絶対にスキップせず最優先処理！
+  let isBirthOrMarriagePriority = !!(
+    (player.partner && player.partner.isMarried && !player.partner.divorced && (player.partner.isPregnant || (player.childrenList || []).length === 0)) ||
+    (player.partner && !player.partner.isMarried && (player.age || 15) >= 20 && (month === 11 || month === 12 || month === 1))
+  );
+  if (!isBirthOrMarriagePriority && curDecModal && curDecModal.style.display === "flex") return;
+
+  let dynamicRoster = getDynamicPartnerRoster();
+  let knownList = getKnownPartnerCandidates();
+
+  // ------------------------------------------------------------------------
+  // 💖 【完全改修・Version 23.90】単独ヒロイン・ランダム遭遇＆累積絆蓄積エンジン（上限5名＆随時告白）
+  // ------------------------------------------------------------------------
+
+  // 1. 【随時告白チェック】交際相手がおらず、既知ヒロインの誰かが絆Lv3以上に達している場合、ランダム告白イベントが発生！
+  if (!player.partner && knownList.length > 0 && (player.age || 15) >= 15 && player.category !== "学童" && player.category !== "中学") {
+    // 高校生（15歳）以上で解禁。同一年代での重複告白スパムを防止＆2年間のクールダウンを厳格適用
+    let confessReady = knownList.filter(k => k.bondLevel >= 3 && (!k.confessionCooldownUntilAge || player.age >= k.confessionCooldownUntilAge) && (!k.lastConfessedEra || k.lastConfessedEra !== player.category));
+    if (confessReady.length > 0 && Math.random() < 0.28) {
+      let cand = confessReady[Math.floor(Math.random() * confessReady.length)];
+      let confessionScene = (cand.bondLevel >= 4)
+        ? `『ずっとあなたを見てきました……。野球に命を懸けるあなたの姿が、誰よりも好きです。私のすべてで、あなたの夢を一番近くで支えさせてください！』`
+        : `『一緒に過ごす時間が増えるたび、胸が高鳴っていました。もしよければ……私と付き合ってください！』`;
+
+      let choices = [
+        {
+          text: `『よろしくお願いします！』——${cand.name}からの告白を受諾し、真剣交際をスタート！`,
+          sub: `${cand.perk}。私生活の最高の支えを獲得。好感度85%、やる気絶好調。`,
+          action: () => {
+            closeDecisionModal();
+            let syncedRole = (typeof getSyncedCandidateRoleType === "function") ? getSyncedCandidateRoleType(cand) : cand.type;
+            let syncedAge = (typeof getSyncedCandidateAge === "function") ? getSyncedCandidateAge(cand) : (cand.currentAge || cand.age || player.age);
+            cand.type = syncedRole;
+            cand.occupation = syncedRole;
+            player.partner = {
+              id: cand.id,
+              baseId: cand.baseId || cand.id,
+              name: cand.name,
+              type: syncedRole,
+              occupation: syncedRole,
+              era: cand.era || "adult",
+              age: syncedAge,
+              currentAge: syncedAge,
+              perk: cand.perk,
+              affection: 85,
+              isMarried: false,
+              children: 0
+            };
+            player.motivation = 5;
+            cand.bondLevel = 5;
+            cand.history.push(`${player.age}歳: 絆Lv${cand.bondLevel}到達による告白を受諾・真剣交際開始`);
+            playSceneBgm("romance");
+            addLog(`💖【愛の告白受諾・真剣交際スタート！】${cand.name}（${cand.type}）からの真摯な想いを受け止め、正式に交際をスタート！私生活のかけがえのない心の支えを得ました！（気迫みなぎる絶好調！）`, "milestone");
+            updateUI();
+          }
+        },
+        {
+          text: `『今はグラウンドでの野球に命を懸けたい』と丁寧に想いを伝える`,
+          sub: "野球一本の道を貫く。精神の集中力・勝負強さ+2。友人関係は維持（※自発的に告白したい時は『交友録』からいつでも告白可能）。",
+          action: () => {
+            closeDecisionModal();
+            cand.lastConfessedEra = player.category; // 同じカテゴリー年代での重複告白を完全抑止
+            cand.confessionCooldownUntilAge = player.age + 2; // 最低2年間のクールダウン
+            player.clutch = Math.min(120, (player.clutch || 40) + 2);
+            addLog(`⚾【野球への決意】${cand.name}の温かい想いに深く感謝しつつも、今は野球に全てを注ぐ覚悟を伝える。温かい友人関係として互いを認め合う。(勝負強さ+2)`);
+            updateUI();
+          }
+        }
+      ];
+
+      if (typeof getSyncedCandidateRoleType === "function") {
+        cand.type = getSyncedCandidateRoleType(cand);
+        cand.occupation = cand.type;
+      }
+      playSceneBgm("romance");
+      showDecisionModal(
+        "🌸【運命の告白】深まった絆と愛の告白",
+        `グラウンド脇の静かな場所で、${cand.name}（${cand.type} / 絆Lv${cand.bondLevel}）が頬を染めて歩み寄ってきました。
+
+${confessionScene}`,
+        choices
+      );
+      return;
+    }
+  }
+
+  // 2. 【単独ヒロイン・ランダム遭遇イベント（必ず1名ずつ提示＆年齢・年代完全整合）】
+  // 出会った人数が上限5名未満なら新規出会いor既存知人の絆深化。5名に達していれば既存知人との絆深化のみ発生。
+  let encProb = (knownList.length === 0) ? 0.24 : 0.16;
+  if (!player.partner && (!player.lastHeroineEventTurn || (turn - player.lastHeroineEventTurn) >= 3) && Math.random() < encProb) {
+    player.lastHeroineEventTurn = turn;
+    let pool = [];
+    if (player.category === "学童") {
+      // 🎒 【Version 23.90 改修】9〜12歳（学童期）は小学生相応の専用私服・少年野球グラフィックが存在する3名（小野寺葵・後藤紬・小林小春）のみに厳格限定！（制服姿の早川陽菜は中学期へ配置）
+      pool = dynamicRoster.filter(c => !c.isDynamic && c.era === "elem" && (
+        c.baseId === "aoi" || c.baseId === "tsumugi" || c.baseId === "koharu" ||
+        (c.id && (c.id.includes("aoi") || c.id.includes("tsumugi") || c.id.includes("koharu"))) ||
+        (c.name && (c.name.includes("葵") || c.name.includes("紬") || c.name.includes("小春")))
+      ));
+      if (pool.length === 0) {
+        pool = PARTNER_ROSTER_CANDIDATES.filter(c => c.id === "aoi" || c.id === "tsumugi" || c.id === "koharu");
+      }
+    } else if (player.category === "中学") {
+      pool = dynamicRoster.filter(c => c.era === "junior" || (c.era === "elem" && knownList.some(k => k.name === c.name)));
+    } else if (player.category === "高校") {
+      // 高校時代は高校生専用ヒロイン（マネージャー・チア・生徒会長等）または中学・学童からの既知ヒロインのみ！
+      pool = dynamicRoster.filter(c => c.era === "high" || ((c.era === "junior" || c.era === "elem") && knownList.some(k => k.name === c.name)));
+    } else if (player.category === "大学") {
+      pool = dynamicRoster.filter(c => c.era === "college" || (c.era === "high" && knownList.some(k => k.name === c.name)));
+    } else {
+      pool = dynamicRoster.filter(c => c.era === "adult" || knownList.some(k => k.name === c.name));
+    }
+    if (pool.length === 0) pool = dynamicRoster;
+
+    // 🌟【Version 23.90 改修】交友録上限（8名）時の運命の新規出会い＆入替対応
+    let targetCandidate = null;
+    let isNewEncounter = false;
+    let isRosterFullEncounter = false;
+
+    if (knownList.length >= MAX_PARTNER_CANDIDATES) {
+      // 満員時でも35%の確率で新たなヒロインとの運命的な出会いが発生！
+      let unknownPool = pool.filter(p => !knownList.some(k => k.name === p.name));
+      if (unknownPool.length > 0 && Math.random() < 0.35) {
+        targetCandidate = unknownPool[Math.floor(Math.random() * unknownPool.length)];
+        isNewEncounter = true;
+        isRosterFullEncounter = true;
+      } else {
+        targetCandidate = knownList[Math.floor(Math.random() * knownList.length)];
+      }
+    } else {
+      let chooseExistingProb = (player.age >= 19) ? 0.75 : 0.50;
+      let chooseExisting = (knownList.length > 0 && Math.random() < chooseExistingProb);
+      if (chooseExisting) {
+        targetCandidate = knownList[Math.floor(Math.random() * knownList.length)];
+      } else {
+        let unknownPool = pool.filter(p => !knownList.some(k => k.name === p.name));
+        if (unknownPool.length > 0) {
+          targetCandidate = unknownPool[Math.floor(Math.random() * unknownPool.length)];
+          isNewEncounter = true;
+        } else {
+          targetCandidate = knownList[Math.floor(Math.random() * knownList.length)];
+        }
+      }
+    }
+
+    if (targetCandidate) {
+      if (typeof getSyncedCandidateRoleType === "function") {
+        targetCandidate.type = getSyncedCandidateRoleType(targetCandidate);
+        targetCandidate.occupation = targetCandidate.type;
+      }
+      let curLvl = targetCandidate.bondLevel || 0;
+      let nextLvl = Math.min(5, curLvl + 1);
+
+      let isYouthEra = (player.category === "学童" || player.category === "中学" || (player.age && player.age < 15));
+      let episodicScenes = isYouthEra ? [
+        `放課後のグラウンド脇で、${targetCandidate.name}さん（${targetCandidate.type}）が「いつも練習頑張ってるね！」と冷たいスポーツドリンクを差し入れてくれました。`,
+        `雨で練習が休みになった放課後、学校の図書室で${targetCandidate.name}さん（${targetCandidate.type}）と偶然隣り合わせになり、好きな本や将来の夢について楽しく話しました。`,
+        `練習試合の後、応援に来てくれていた${targetCandidate.name}さん（${targetCandidate.type}）が駆け寄り、「今日のプレー、すごくかっこよかったよ！」と笑顔で声をかけてくれました。`,
+        `夕暮れの帰り道、${targetCandidate.name}さん（${targetCandidate.type}）と並んで歩きながら学校の出来事や次の大会の目標を話し、元気をもらいました。`
+      ] : [
+        `全体練習後の夕暮れ、${targetCandidate.name}さん（${targetCandidate.type}）が「いつも遅くまで頑張ってるから」と疲労回復の特製はちみつレモンと手紙を差し入れてくれました。`,
+        `雨天中止となった休日、街の落ち着いたカフェで偶然${targetCandidate.name}さん（${targetCandidate.type}）と鉢合わせし、窓を叩く雨音を聞きながら将来の夢について語り合いました。`,
+        `試合後、スタンドで熱心に応援してくれていた${targetCandidate.name}さん（${targetCandidate.type}）が駆け寄り、「今日のプレー、すごく輝いてたよ！」と観戦ノートを見せてくれました。`,
+        `早朝ロードワークの帰り道、${targetCandidate.name}さん（${targetCandidate.type}）と並んで歩きながら他愛もない会話で笑い合い、日頃の重圧から心が解き放たれました。`
+      ];
+      let chosenEpisode = episodicScenes[(turn + (player.age || 15)) % episodicScenes.length];
+
+      let encounterTitle = isNewEncounter 
+        ? `🌸【新たな出会い】${targetCandidate.name}（${targetCandidate.type}）` 
+        : `💌【ヒロイン交流イベント】${targetCandidate.name}（現在: ★Lv${curLvl}）`;
+
+      let encounterDesc = isNewEncounter
+        ? `日々の生活の中で、${targetCandidate.name}さん（${targetCandidate.type}）と初めて出会いました。
+
+【人物詳細】${targetCandidate.desc || "笑顔が印象的な魅力的な女性。"}
+
+どのように対応しますか？（※親交を深めると交友録に登録され★Lv1になります）`
+        : `${chosenEpisode}
+
+【相手】${targetCandidate.name}（${targetCandidate.type} / 現在の絆: ★Lv${curLvl}）
+※好意に応えて親交を深めると絆が【★Lv${nextLvl}】へ進みます。野球優先で距離を保つ場合は★は進みません。`;
+
+      let choices = [
+        {
+          text: `『笑顔で応え、親交を深める』——温かい交流を交わす`,
+          sub: `絆レベルUP (Lv${curLvl} ➔ Lv${nextLvl})。やる気UP、心の安らぎを獲得。(既知候補: ${Math.min(MAX_PARTNER_CANDIDATES, knownList.length + (isNewEncounter ? 1 : 0))}/${MAX_PARTNER_CANDIDATES}名)`,
+          action: () => {
+            closeDecisionModal();
+            if (isRosterFullEncounter) {
+              // 満員時の出会い：最も絆が低い（または未交際）候補を1名選んで入替
+              let datingName = (player.partner && player.partner.name) ? player.partner.name : "";
+              let nonDatingList = knownList.filter(c => c.name !== datingName);
+              if (nonDatingList.length > 0) {
+                nonDatingList.sort((a,b) => (a.bondLevel || 0) - (b.bondLevel || 0));
+                let toReplace = nonDatingList[0];
+                let replaceIdx = knownList.findIndex(x => x.name === toReplace.name);
+                if (replaceIdx !== -1) {
+                  let dropped = knownList.splice(replaceIdx, 1)[0];
+                  addLog(`👋【交友録の自然な入替】新たな出会い（${targetCandidate.name}）を機に、疎遠となっていた${dropped.name}さんとの交流を一区切りとしました。`, "milestone");
+                }
+              }
+            }
+            let k = registerOrUpdateCandidateBond(targetCandidate, 1, `グラウンド内外での温かい交流（絆Lv${nextLvl}）`);
+            if (k) {
+              player.motivation = Math.min(5, (player.motivation || 3) + 1);
+              player.childhoodBond = { id: k.id, name: k.name, level: k.bondLevel, history: k.history };
+              addLog(`🌸【ヒロイン交流】${targetCandidate.name}（${targetCandidate.type}）と親交を深めました！(絆Lv${k.bondLevel} / やる気UP)`, "milestone");
+            } else {
+              player.motivation = Math.min(5, (player.motivation || 3) + 1);
+              addLog(`🌸【ヒロイン交流】${targetCandidate.name}（${targetCandidate.type}）と温かい言葉を交わしました！(※交友録の上限5名に達しているため、交友録への新規登録は見送られました。[交友録]から枠を整理できます)`, "milestone");
+            }
+            updateUI();
+          }
+        },
+        {
+          text: `⚾『感謝を伝えつつ、今は野球最優先で友人としての距離を保つ』`,
+          sub: "★（絆レベル）は進みません（据え置き）。ストイックに自主練習へ戻り、スタミナ+1・勝負強さ+1。",
+          action: () => {
+            closeDecisionModal();
+            player.stm = Math.min(120, (player.stm || 40) + 1);
+            player.clutch = Math.min(120, (player.clutch || 40) + 1);
+            addLog(`⚾【野球優先・友人距離の維持】${targetCandidate.name}さんの心遣いに丁寧にお礼を伝えつつ、今は野球に集中するためグラウンドへ戻って汗を流した。(★変化なし / スタミナ+1, 勝負強さ+1)`);
+            updateUI();
+          }
+        }
+      ];
+
+      playSceneBgm("romance");
+      showDecisionModal(encounterTitle, encounterDesc, choices);
+      return;
+    }
+  }
+
+}
+
 
 // 🏋️ 肉体改造・フィジカル方針モーダル（毎年1月）
 function showPhysicalConditioningModal() {
@@ -30106,7 +30436,7 @@ function openNamingSettingsModal() {
 
   showDecisionModal(
     "⚙️【オプション設定・音響・アルバム鑑賞】",
-    `【バージョン: baseball life ∞infinity Version 24.30】
+    `【バージョン: baseball life ∞infinity Version 24.40】
 音響・BGM試聴、OPシアター・メモリアルアルバム鑑賞、所属球団名の編集を行えます。
 （※セーブデータのファイル書き出しは「💾 セーブ保存」画面、ファイルからの復元やデータ削除は「📂 ロード読込」画面から行えます）
 【音響状態: ${soundLabel}】${secretUnlocked ? "\n【隠し設定: " + modeLabel + "】" : ""}`,
@@ -30160,7 +30490,7 @@ function exportSaveDataToFile() {
   let exportObj = {
     _readme_使い方: "このファイルは『baseball life ∞infinity』のセーブデータバックアップです。ゲーム内の「⚙️ オプション設定」または「📂 ロード読込」にある「📂 バックアップファイルから復元（.json読込）」からこのファイルを選択すると、現在のプレイ状況と全記録枠がそのまま復元されます。",
     app: "baseball_life_simulation",
-    version: "Version 24.30",
+    version: "Version 24.40",
     exportedAt: new Date().toISOString(),
     currentPlayerSummary: currentData.summary,
     currentSession: currentData,
@@ -31190,7 +31520,7 @@ function executeLoadFromSlot(slotKey, slotNum) {
     player.indieEntryAge = player.age;
   }
 
-  // 🌟【Version 24.30 セーブデータ自動アップグレード処理】
+  // 🌟【Version 24.40 セーブデータ自動アップグレード処理】
   // 旧バージョンのセーブデータをロードした際も、投手時のミート巧打異常値修復や新オリジナル球団名への変換を即時適用する
   let isP_load = (player.pos === "投手" || player.pos === "二刀流（投打）" || !!player.isTwoWay);
   if (isP_load && !player.isTwoWay) {
@@ -31207,14 +31537,14 @@ function executeLoadFromSlot(slotKey, slotNum) {
   if (player.pennantStandings) {
     initPennantStandings();
   }
-  player.gameVersion = "Version 24.30";
+  player.gameVersion = "Version 24.40";
   let charModalEl = document.getElementById("charModal");
   if (charModalEl) charModalEl.style.display = "none";
   let gTitleEl = document.getElementById("grandTitleScreen");
   if (gTitleEl) gTitleEl.classList.add("hidden");
 
   updateUI();
-  addLog(`📂【球歴再開（Version 24.30 適用）】記録枠 ${slotNum} より『${player.name}』のデータを最新バージョン仕様へ自動更新して復元しました！`, "crit");
+  addLog(`📂【球歴再開（Version 24.40 適用）】記録枠 ${slotNum} より『${player.name}』のデータを最新バージョン仕様へ自動更新して復元しました！`, "crit");
 }
 
 function loadGame() {
@@ -34857,81 +35187,6 @@ function renderCharacterPortraitSlot(type = 0, options = {}) {
   `;
 }
 
-function openCustomPortraitModal() {
-  let modal = document.getElementById("portraitSettingsModal");
-  if (!modal) return;
-  renderPortraitSettingsUI();
-  modal.style.display = "flex";
-}
-
-function closeCustomPortraitModal() {
-  let modal = document.getElementById("portraitSettingsModal");
-  if (modal) modal.style.display = "none";
-}
-
-function renderPortraitSettingsUI() {
-  let listEl = document.getElementById("portraitSettingsList");
-  if (!listEl) return;
-  
-  let custom = {};
-  try {
-    let saved = localStorage.getItem("sim_custom_portraits");
-    if (saved) custom = JSON.parse(saved);
-  } catch(e) {}
-  
-  const SLOTS = [
-    { key: "player", label: "🌟 主人公（プレイヤー球児）", defaultPath: "assets/player_bust.png" },
-    { key: "catcher", label: "⚾ 女房役キャッチャー（相棒捕手）", defaultPath: "assets/catcher_bust.png" },
-    { key: "coach", label: "👔 監督・指導者（名将・首脳陣）", defaultPath: "assets/coach_bust.png" },
-    { key: "heroine", label: "🎀 彼女候補・マネージャー（ヒロイン）", defaultPath: "assets/heroine_bust.png" }
-  ];
-  
-  let html = SLOTS.map(s => {
-    let curVal = custom[s.key] || "";
-    let previewHtml = renderCharacterPortraitSlot(s.key, { size: 'sm' });
-    return `
-      <div style="background:#0f172a; border:1px solid #334155; border-radius:6px; padding:8px 10px; display:flex; gap:10px; align-items:center;">
-        <div style="width:56px; height:68px; flex-shrink:0; border-radius:6px; overflow:hidden; border:1px solid rgba(56,189,248,0.4);">
-          ${previewHtml}
-        </div>
-        <div style="flex:1; min-width:0;">
-          <div style="font-size:11px; font-weight:bold; color:#f8fafc; margin-bottom:4px;">${s.label}</div>
-          <input type="text" id="input_portrait_${s.key}" value="${curVal}" placeholder="例: assets/${s.key}_bust.png または Drive共有URL"
-                 style="width:100%; box-sizing:border-box; background:#1e293b; border:1px solid #475569; color:#f8fafc; font-size:10px; padding:4px 6px; border-radius:4px; margin-bottom:4px;" />
-          <div style="font-size:9px; color:#94a3b8;">未入力時は初期アセット（${s.defaultPath}）を使用</div>
-        </div>
-      </div>
-    `;
-  }).join("");
-  
-  listEl.innerHTML = html;
-}
-
-function saveCustomPortraits() {
-  const SLOTS = [
-    "player", "player_gakudo", "player_chugaku", "player_koukou", 
-    "player_daigaku", "player_shakaijin", "player_pro", "player_veteran", "player_coach",
-    "catcher", "coach", "heroine"
-  ];
-  let data = {};
-  SLOTS.forEach(k => {
-    let el = document.getElementById("input_portrait_" + k);
-    if (el && el.value.trim()) {
-      data[k] = el.value.trim();
-    }
-  });
-  localStorage.setItem("sim_custom_portraits", JSON.stringify(data));
-  addLog("🖼️【画像設定更新】キャラクターポートレート設定を保存・更新しました！", "milestone");
-  closeCustomPortraitModal();
-  updateUI();
-}
-
-function resetCustomPortraits() {
-  localStorage.removeItem("sim_custom_portraits");
-  addLog("🔄【画像設定初期化】キャラクター画像を内蔵初期アセットへリセットしました。", "milestone");
-  renderPortraitSettingsUI();
-  updateUI();
-}
 
 
 // 🎽 【Version 23.90 システム新設】球団ユニフォーム動的スタイリング解決エンジン
