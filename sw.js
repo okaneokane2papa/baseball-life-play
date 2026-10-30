@@ -1,4 +1,4 @@
-const CACHE_NAME = 'baseball-life-infinity-pwa-v2420';
+const CACHE_NAME = 'baseball-life-infinity-pwa-v2430';
 const ASSETS = [
   './',
   './index.html',
@@ -24,7 +24,12 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  // Network-First: GitHub Pagesの更新が即座に反映されるようネットワーク優先で取得し、オフライン時のみキャッシュを使用
   event.respondWith(
-    caches.match(event.request).then((cached) => cached || fetch(event.request))
+    fetch(event.request).then((res) => {
+      const copy = res.clone();
+      caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy)).catch(() => {});
+      return res;
+    }).catch(() => caches.match(event.request))
   );
 });

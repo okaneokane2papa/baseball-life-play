@@ -20,7 +20,7 @@
 <meta name="apple-mobile-web-app-title" content="本格野球人生シミュレーション">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#1a2a3a">
-<title>⚾ 本格野球人生シミュレーション『baseball life ∞infinity』【無料体験版：青春高校野球編】(Version 24.20 Lite)</title>
+<title>⚾ 本格野球人生シミュレーション『baseball life ∞infinity』【無料体験版：青春高校野球編】(Version 24.30 Lite)</title>
 <style>
   :root {
     --bg-primary: #0f172a;
@@ -3404,7 +3404,7 @@
   }
 
 
-  /* 📱【Version 24.20 スマホ画面UI抜本改善（ハイブリッド統合推奨案：案A＋案B＋案C）】 */
+  /* 📱【Version 24.30 スマホ画面UI抜本改善（ハイブリッド統合推奨案：案A＋案B＋案C）】 */
   @media(max-width: 767px) {
     /* 1) 上部タブバー＆ロッカールーム引継ぎボタンの360px幅完全収容（文字切れゼロ） */
     .tab-bar {
@@ -3493,7 +3493,7 @@
   }
 
 
-  /* 🔧【Version 24.20 Step 5 視覚検査フィードバック修正：タイトル・ロッカールーム・メイン盤面の1px単位最適化】 */
+  /* 🔧【Version 24.30 Step 5 視覚検査フィードバック修正：タイトル・ロッカールーム・メイン盤面の1px単位最適化】 */
   @media(max-width: 767px) {
     /* 1) グランドタイトル画面：NEW BALLPLAYERボタンの横溢れ完全解消＆サブタイトル美しい改行 */
     .lk-title-main-btn {
@@ -3606,7 +3606,7 @@
 </style>
 
 
-  <!-- PWA & Mobile App Support (v24.20) -->
+  <!-- PWA & Mobile App Support (v24.30) -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0b132b">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3754,9 +3754,7 @@
       <button type="button" class="lk-title-sub-btn" onclick="closeGrandTitleAndOpenLoad()">
         📂 CONTINUE（球歴再開）
       </button>
-      <button type="button" class="lk-title-sub-btn" style="color:#fde047 !important; border-color:rgba(251,191,36,0.5) !important;" onclick="openUniformCustomModal()">
-        🎽 UNIFORM（球団カラー）
-      </button>
+
     </div>
     <div style="width:100%; margin-top:6px; padding:6px 10px; border-radius:8px; background:linear-gradient(135deg, rgba(15,23,42,0.9), rgba(30,58,138,0.65)); border:1px solid #38bdf8; color:#e0f2fe; font-size:10.5px; text-align:center; font-weight:bold;">
       🎓 無料体験版：小学4年〜高校3年10月（運命のドラフト会議直前）までプレイ可能・製品版へセーブ完全引継ぎ対応！
@@ -3791,7 +3789,7 @@
       <div class="lk-hero-banner">
         <div class="lk-hero-kicker">本格野球人生シミュレーション — 覚悟を問うロッカールーム</div>
         <div class="lk-hero-title">⚾ baseball life <span style="color:#38bdf8;">∞infinity</span></div>
-        <div class="lk-hero-sub">白球を握ったあの日から、君のリアルな野球人生が始まる—— <span style="color:#38bdf8; font-weight:bold;"><span id="lkDynamicVerLabel">(Version 24.20 体験版：青春高校野球編)</span></span></div>
+        <div class="lk-hero-sub">白球を握ったあの日から、君のリアルな野球人生が始まる—— <span style="color:#38bdf8; font-weight:bold;"><span id="lkDynamicVerLabel">(Version 24.30 体験版：青春高校野球編)</span></span></div>
         <div id="hankoStamp">
           <span>入団承認</span>
           <span id="hankoSubText" style="font-size:8.5px; margin-top:1px;">宮城・投手</span>
@@ -4079,7 +4077,7 @@
       </button>
 
       <div id="charCreateNavButtons" class="lk-bottom-nav-row">
-        <button type="button" class="lk-sub-nav-btn lk-sub-gold" id="btnOpenUniformColor" onclick="openUniformCustomModal()">🎽 球団カラー設定</button>
+        
         <button type="button" class="lk-sub-nav-btn lk-sub-cyan" id="btnLoadFromCharCreate" onclick="switchToLoadFromCharCreate()">📂 記録枠から再開</button>
         
         <button type="button" class="lk-sub-nav-btn" id="btnCancelCharCreate" style="display:none;" onclick="cancelCharCreate()">↩ プレイに戻る</button>
@@ -9190,7 +9188,7 @@ const DYNAMIC_SON_IN_LAW_NAMES = ["若林 涼平", "神谷 隼人", "本田 悠�
 // 【Version 23.90 改修】オープニングデモシアターモード完全削除済
 
 // ==============================================================================
-// 🎵 64和音ポリフォニック・クラシックオーケストラ音源エンジン（Version 23.90）
+// 🎵 ポリフォニック・クラシックオーケストラ音源エンジン（Version 23.90）
 // 全40曲完全収録・場面自動連動・ジュークボックス試聴＆お気に入り固定機能
 // ==============================================================================
 
@@ -10217,7 +10215,7 @@ function playTone64(ctx, freq, startTime, duration, typeOrInst, volume, detuneCe
 // 🥁 ノイズゼロ・調性完全一致型アコースティック・ティンパニ＆低音コントラバスピッツィカート（ホワイトノイズ系打楽器は完全廃止！）
 function playOrchestraPercussion(ctx, startTime, percType, tunedFreq = 98.0, dyn = 1.0) {
   if (!ctx || isMasterMuted || masterBgmVolume <= 0) return;
-  if (percType !== 'timpani' && percType !== 'gran_cassa' && percType !== 'cymbal_roll') return; // ザザザ雑音の原因となるホワイトノイズ系(スネア等)は完全排除
+  if (percType !== 'timpani' && percType !== 'gran_cassa') return; // ザザザ雑音の原因となるホワイトノイズ系(スネア等)は完全排除
   try {
     const bus = getRoyalMasterBus(ctx);
     if (!bus) return;
@@ -10636,7 +10634,7 @@ function setBgmVolume(val) {
 
 function toggleMasterMute() {
   isMasterMuted = !isMasterMuted;
-  let txt = isMasterMuted ? "完全消音 (MUTE)" : "🔊 64和音BGM ON";
+  let txt = isMasterMuted ? "完全消音 (MUTE)" : "🔊 BGM ON";
   let tIcon = isMasterMuted ? "🔇" : "🔊";
 
   let elText = document.getElementById("demoMuteText");
@@ -10663,7 +10661,7 @@ function changeBgmTrack(val) {
   if (isMasterMuted) {
     isMasterMuted = false;
     let elText = document.getElementById("demoMuteText");
-    if (elText) elText.innerText = "🔊 64和音BGM ON";
+    if (elText) elText.innerText = "🔊 BGM ON";
     let hBtn = document.getElementById("btnHeaderMute");
     if (hBtn) hBtn.innerHTML = `🔊 <span id="headerMuteText">BGM ON</span>`;
   }
@@ -10685,7 +10683,7 @@ function updateBgmSelectUIs() {
 }
 
 // ==============================================================================
-// 📻 64和音クラシック・ジュークボックス（サウンドテスト）モーダルUI
+// 📻 クラシック・ジュークボックス（サウンドテスト）モーダルUI
 // ==============================================================================
 let currentJukeboxFilterMode = "all";
 function openBgmJukeboxModal() {
@@ -10756,7 +10754,7 @@ function previewBgmTrack(trackId) {
     currentBgmTrackId = trackId;
     startBgmLoop64(trackId);
     let t = document.getElementById("demoMuteText");
-    if (t) t.innerText = "🔊 64和音BGM ON";
+    if (t) t.innerText = "🔊 BGM ON";
   }
   updateBgmSelectUIs();
   renderJukeboxTrackList();
@@ -14224,7 +14222,7 @@ function resolveSixLayer(base, fatigue, env, opp, sit) {
   }
 
   let analystMod = (typeof player !== 'undefined' && player && player.dataAnalystBuff) ? 5 : 0;
-  let hardMod = (typeof player !== 'undefined' && player && player.difficulty === 'hard') ? -9 : -3; // 🔥 Version 24.20 全体難易度上昇(ノーマル-3 / ハード-9)
+  let hardMod = (typeof player !== 'undefined' && player && player.difficulty === 'hard') ? -9 : -3; // 🔥 Version 24.30 全体難易度上昇(ノーマル-3 / ハード-9)
   let lineageMod = (typeof player !== 'undefined' && player && (player.lineageMarkLevel || 1) > 1) ? -Math.min(8, ((player.lineageMarkLevel || 1) - 1) * 2) : 0;
   let tn = base + statusMod + motMod + env + opp + sit + Math.floor(specialMod) + analystMod + hardMod + lineageMod;
   tn = Math.max(5, Math.min(95, tn));
@@ -22026,17 +22024,7 @@ async function showMatchResultWithSuspense(matchHtml, tournamentName, roundTitle
       if (animSkipped) return;
       animSkipped = true;
 
-      // ⚾ 野球場オルガン・勝利ファンファーレ（野球専用音響・ゲームセット響鳴）
-      try {
-        if (ctx && !isMasterMuted) {
-          let now = ctx.currentTime;
-          // C-E-G-C 球場オルガンファンファーレ和音
-          playTone64(ctx, 261.63, now, 0.2, "sine", 0.04, 0, 0.1);
-          playTone64(ctx, 329.63, now + 0.08, 0.2, "sine", 0.04, 0, 0.1);
-          playTone64(ctx, 392.00, now + 0.16, 0.2, "sine", 0.04, 0, 0.1);
-          playTone64(ctx, 523.25, now + 0.24, 0.5, "triangle", 0.06, 3, 0.2);
-        }
-      } catch(e) {}
+      // 試合終了時の合成オルガンSE廃止（BGM鑑賞を妨げないクリーン設計）
 
       // 🌟【Version 23.90 改修】重複していた上部スコアボード(finalBoardHtml)を撤廃し、BALLPARK SCOREBOARD 1つに完全統合！
       container.innerHTML = matchHtml;
@@ -22217,7 +22205,7 @@ async function showMatchResultWithSuspense(matchHtml, tournamentName, roundTitle
         try {
           if (ctx && !isMasterMuted) {
             let now = ctx.currentTime;
-            playTone64(ctx, 440.00, now, 0.15, "triangle", 0.04, 3, 0.1);
+            // イニングSE廃止
           }
         } catch(e) {}
       } else {
@@ -22231,7 +22219,7 @@ async function showMatchResultWithSuspense(matchHtml, tournamentName, roundTitle
         try {
           if (ctx && !isMasterMuted) {
             let now = ctx.currentTime;
-            playTone64(ctx, 220.00, now, 0.05, "sine", 0.02, 0, 0.05);
+            // イニングSE廃止
           }
         } catch(e) {}
       }
@@ -25385,95 +25373,10 @@ function toggleSound() {
 }
 
 // ドラムロール（ドラフトくじ引き・封筒開封）
-function playDrumRollSound(durationMs = 1500) {
-  if (!isSoundEnabled) return;
-  try {
-    let ctx = getAudioContext();
-    if (!ctx) return;
-    let startTime = ctx.currentTime;
-    let endTime = startTime + (durationMs / 1000);
-    let interval = 0.045; // 45ms間隔でスネア調ビート
-    for (let t = startTime; t < endTime; t += interval) {
-      let osc = ctx.createOscillator();
-      let gain = ctx.createGain();
-      osc.type = "triangle";
-      osc.frequency.setValueAtTime(130 + Math.random() * 50, t);
-      gain.gain.setValueAtTime(0.15, t);
-      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.04);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start(t);
-      osc.stop(t + 0.04);
-    }
-  } catch (e) {}
-}
-
-// 交渉権確定！ファンファーレ（輝かしいメジャーコード分散和音）
-function playFanfareSound() {
-  if (!isSoundEnabled) return;
-  try {
-    let ctx = getAudioContext();
-    if (!ctx) return;
-    let now = ctx.currentTime;
-    let notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
-    let times = [0, 0.12, 0.24, 0.40];
-    let durations = [0.15, 0.15, 0.2, 0.9];
-    notes.forEach((freq, idx) => {
-      let osc = ctx.createOscillator();
-      let gain = ctx.createGain();
-      osc.type = "sine";
-      osc.frequency.setValueAtTime(freq, now + times[idx]);
-      gain.gain.setValueAtTime(0.22, now + times[idx]);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + times[idx] + durations[idx]);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start(now + times[idx]);
-      osc.stop(now + times[idx] + durations[idx]);
-    });
-  } catch (e) {}
-}
-
-// 外れクジ（低音ブザー音）
-function playBuzzerSound() {
-  if (!isSoundEnabled) return;
-  try {
-    let ctx = getAudioContext();
-    if (!ctx) return;
-    let now = ctx.currentTime;
-    let osc = ctx.createOscillator();
-    let gain = ctx.createGain();
-    osc.type = "sawtooth";
-    osc.frequency.setValueAtTime(130, now);
-    osc.frequency.linearRampToValueAtTime(80, now + 0.35);
-    gain.gain.setValueAtTime(0.18, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start(now);
-    osc.stop(now + 0.4);
-  } catch (e) {}
-}
-
-// 決定・選択クリック音
-function playChoiceSound() {
-  if (!isSoundEnabled) return;
-  try {
-    let ctx = getAudioContext();
-    if (!ctx) return;
-    let now = ctx.currentTime;
-    let osc = ctx.createOscillator();
-    let gain = ctx.createGain();
-    osc.type = "sine";
-    osc.frequency.setValueAtTime(880, now);
-    osc.frequency.exponentialRampToValueAtTime(1320, now + 0.08);
-    gain.gain.setValueAtTime(0.12, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start(now);
-    osc.stop(now + 0.08);
-  } catch (e) {}
-}
+function playDrumRollSound(durationMs = 1500) { return; }
+function playFanfareSound() { return; }
+function playBuzzerSound() { return; }
+function playChoiceSound() { return; }
 
 
 // ==========================================
@@ -28300,7 +28203,7 @@ async function cmdPractice(menu) {
   player.practiceCountYear[menu] = (player.practiceCountYear[menu] || 0) + 1;
 
   let fatInc = 10;
-  // 🔥【Version 24.20 難易度引き上げ】練習基礎疲労を+1pt引き上げ、休養・ピーキング管理の重要度を強化
+  // 🔥【Version 24.30 難易度引き上げ】練習基礎疲労を+1pt引き上げ、休養・ピーキング管理の重要度を強化
   if (menu === "P1") fatInc = isPitchMode ? 10 : 10; // コース投球 / ミート打撃
   else if (menu === "P2") fatInc = isPitchMode ? 12 : 15; // 変化球 / 長打ウエイト
   else if (menu === "P3") fatInc = isPitchMode ? 15 : 12; // ウエイト球威 / 走塁ダッシュ
@@ -28430,7 +28333,7 @@ async function cmdPractice(menu) {
   let curMot = player.motivation || 3;
   let motMult = motCoeffs[curMot] || 1.0;
 
-  // 🔥【Version 24.20 全体難易度引き上げ】基礎練習成長係数を0.92倍に引き締め（ハードはさらに0.78倍）
+  // 🔥【Version 24.30 全体難易度引き上げ】基礎練習成長係数を0.92倍に引き締め（ハードはさらに0.78倍）
   growth *= 0.92;
   if (player.difficulty === 'hard') growth *= 0.78;
   // 手応えランダム引き締め（大成功16% [1.45倍]、通常66%、集中散漫18% [0.5倍]）
@@ -30103,29 +30006,21 @@ function setSecretNamingModeUnlocked(flag) {
 function openNamingSettingsModal() {
   let currentMode = getTeamNamingMode();
   let modeLabel = (currentMode === "real") ? "🌟 実在球団名表示" : "🛡️ オリジナル球団名表示";
-  let soundLabel = isMasterMuted ? "🔇 完全消音（MUTE中）" : "🔊 64和音サウンド再生中";
+  let soundLabel = isMasterMuted ? "🔇 完全消音（MUTE中）" : "🔊 サウンド再生中";
   let secretUnlocked = isSecretNamingModeUnlocked();
 
   let choices = [
-    {
-      text: "🎽 ユニフォーム＆球団カラー設定（帽子イニシャル変更）",
-      sub: "プロ入団球団のカラー連動や、帽子のアルファベット1文字、胸元ロゴのカスタム設定を行います。",
-      action: () => {
-        closeDecisionModal();
-        openUniformCustomModal();
-      }
-    },
     {
       text: isMasterMuted ? "🔊 サウンドミュート解除（BGM再生開始）" : "🔇 サウンド完全消音（MUTEに切り替え）",
       sub: `ワンタップで全体の音響を切り替えます。【現在: ${soundLabel}】`,
       action: () => {
         closeDecisionModal();
         toggleMasterMute();
-        addLog(isMasterMuted ? "🔇【音響設定】サウンドを完全消音（MUTE）に設定しました。" : "🔊【音響設定】64和音BGMサウンド再生を再開しました！", "milestone");
+        addLog(isMasterMuted ? "🔇【音響設定】サウンドを完全消音（MUTE）に設定しました。" : "🔊【音響設定】BGMサウンド再生を再開しました！", "milestone");
       }
     },
     {
-      text: "🎵 64和音 クラシック・ジュークボックス（全40曲サウンドテスト）",
+      text: "🎵 クラシック・ジュークボックス（全40曲サウンドテスト）",
       sub: "全40曲の試聴、音量調整、お気に入りBGM固定設定を開きます。",
       action: () => {
         closeDecisionModal();
@@ -30201,36 +30096,19 @@ function openNamingSettingsModal() {
     );
   }
 
-  choices.push(
-    {
-      text: "💾 セーブデータのファイル書き出し（別PC・別ブラウザへの引越し保存）",
-      sub: "現在プレイ中のデータと記録枠（全3枠）を「.jsonファイル」として端末へ保存します。保存したファイルは次の「📂 ファイルから復元」で読み込めます。",
-      action: () => {
-        closeDecisionModal();
-        exportSaveDataToFile();
-      }
-    },
-    {
-      text: "📂 バックアップファイルから復元（書き出した.jsonファイルを読み込む）",
-      sub: "端末に保存したバックアップファイル（.json）を選択して読み込み、選手データと記録枠をそのまま復元します。",
-      action: () => {
-        closeDecisionModal();
-        triggerImportSaveDataFilePicker();
-      }
-    },
-    {
-      text: "↩ 戻る（ゲーム画面へ戻る）",
-      sub: "設定を閉じて現在のプレイ画面へ戻ります（ターン経過なし）。",
-      action: () => {
-        closeDecisionModal();
-      }
+  choices.push({
+    text: "↩ ゲームに戻る",
+    sub: "オプション設定を閉じて現在のプレイ画面へ戻ります（ターン経過なし）。",
+    action: () => {
+      closeDecisionModal();
     }
-  );
+  });
 
   showDecisionModal(
-    "⚙️【オプション設定・音響・バックアップ管理】",
-    `【バージョン: baseball life ∞infinity Version 24.20】
-ユニフォーム設定、音響・BGM試聴、OP・アルバム鑑賞、データのファイル書き出し＆復元を行えます。
+    "⚙️【オプション設定・音響・アルバム鑑賞】",
+    `【バージョン: baseball life ∞infinity Version 24.30】
+音響・BGM試聴、OPシアター・メモリアルアルバム鑑賞、所属球団名の編集を行えます。
+（※セーブデータのファイル書き出しは「💾 セーブ保存」画面、ファイルからの復元やデータ削除は「📂 ロード読込」画面から行えます）
 【音響状態: ${soundLabel}】${secretUnlocked ? "\n【隠し設定: " + modeLabel + "】" : ""}`,
     choices,
     "option_no_hud"
@@ -30282,7 +30160,7 @@ function exportSaveDataToFile() {
   let exportObj = {
     _readme_使い方: "このファイルは『baseball life ∞infinity』のセーブデータバックアップです。ゲーム内の「⚙️ オプション設定」または「📂 ロード読込」にある「📂 バックアップファイルから復元（.json読込）」からこのファイルを選択すると、現在のプレイ状況と全記録枠がそのまま復元されます。",
     app: "baseball_life_simulation",
-    version: "Version 24.20",
+    version: "Version 24.30",
     exportedAt: new Date().toISOString(),
     currentPlayerSummary: currentData.summary,
     currentSession: currentData,
@@ -30397,6 +30275,67 @@ function getSlotSummary(key) {
   }
 }
 
+function openDeleteSaveDataModal(returnToModalType) {
+  let choices = SAVE_SLOT_KEYS.map((key, idx) => {
+    let summary = getSlotSummary(key);
+    let hasData = !summary.includes("空きスロット") && !summary.includes("【未記録】");
+    return {
+      text: hasData ? `🗑️ 記録枠 ${idx + 1} のデータを削除する` : `（記録枠 ${idx + 1}: 空き枠）`,
+      sub: summary,
+      action: () => {
+        if (!hasData) {
+          alert(`記録枠 ${idx + 1} には削除するデータがありません。`);
+          return;
+        }
+        if (confirm(`本当に【記録枠 ${idx + 1}】のセーブデータを削除しますか？\n${summary}\n（※この操作は取り消せません）`)) {
+          localStorage.removeItem(key);
+          if (key === "baseball_sim_slot_1") {
+            localStorage.removeItem("baseball_sim_save");
+          }
+          addLog(`🗑️【データ削除】記録枠 ${idx + 1} のセーブデータを削除しました。`, "milestone");
+        }
+        closeDecisionModal();
+        if (returnToModalType === "save") openSaveModal();
+        else openLoadModal();
+      }
+    };
+  });
+
+  choices.push(
+    {
+      text: "⚠️ 全セーブデータ（記録枠1〜3すべて）を一括削除・初期化する",
+      sub: "ブラウザ内に保存されているすべてのセーブ枠を完全に消去して初期状態に戻します。",
+      action: () => {
+        if (confirm("本当に【全記録枠（1〜3すべて）】のセーブデータを完全削除しますか？\n（※この操作は取り消せません）")) {
+          SAVE_SLOT_KEYS.forEach(k => localStorage.removeItem(k));
+          localStorage.removeItem("baseball_sim_save");
+          localStorage.removeItem("baseball_sim_trial_transfer_v1");
+          addLog("🗑️【全データ初期化】すべてのセーブ枠を削除しました。", "crit");
+        }
+        closeDecisionModal();
+        if (returnToModalType === "save") openSaveModal();
+        else openLoadModal();
+      }
+    },
+    {
+      text: "↩ 前の画面に戻る",
+      sub: "削除せずにセーブ・ロード画面へ戻ります。",
+      action: () => {
+        closeDecisionModal();
+        if (returnToModalType === "save") openSaveModal();
+        else openLoadModal();
+      }
+    }
+  );
+
+  showDecisionModal(
+    "🗑️【セーブデータの削除・整理】",
+    "削除したい記録枠を選択してください。不要になった旧バージョンのデータを個別に消去できます。",
+    choices,
+    "option_no_hud"
+  );
+}
+
 function openSaveModal() {
   let choices = SAVE_SLOT_KEYS.map((key, idx) => {
     let summary = getSlotSummary(key);
@@ -30410,10 +30349,37 @@ function openSaveModal() {
     };
   });
 
+  choices.push(
+    {
+      text: "📥 セーブデータのファイル書き出し（別PC・別ブラウザへの引越し保存）",
+      sub: "現在プレイ中のデータと記録枠（全3枠）を「.jsonファイル」として端末へダウンロード保存します。保存したファイルは「📂 ロード読込」画面の「ファイルから復元」で読み込めます。",
+      action: () => {
+        closeDecisionModal();
+        exportSaveDataToFile();
+      }
+    },
+    {
+      text: "🗑️ セーブデータの削除（記録枠の個別消去・初期化）",
+      sub: "不要になった記録枠のセーブデータを削除して空き枠に戻します。",
+      action: () => {
+        closeDecisionModal();
+        openDeleteSaveDataModal("save");
+      }
+    },
+    {
+      text: "↩ ゲームに戻る（保存せず閉じる）",
+      sub: "セーブ画面を閉じて現在のプレイ画面へ戻ります（ターン経過なし）。",
+      action: () => {
+        closeDecisionModal();
+      }
+    }
+  );
+
   showDecisionModal(
-    "💾【球歴の記録保存】記録枠の選択",
-    "保存先の記録枠を選択してください。これまでの全熱闘実況ログとともに大切に保管されます。",
-    choices
+    "💾【球歴の記録保存・バックアップ書き出し】",
+    "保存先の記録枠を選択するか、別PC・別ブラウザ移行用のバックアップファイル（.json）を書き出せます。",
+    choices,
+    "option_no_hud"
   );
 }
 
@@ -31050,13 +31016,22 @@ function openLoadModal() {
     };
   });
 
-  // 📥 【Version 23.90 新設】体験版（高校3年ドラフト直前データ）からのハイブリッド引継ぎ選択肢
+  choices.push({
+    text: "📂 バックアップファイルから復元（書き出した.jsonファイルを読み込む）",
+    sub: "セーブ画面の「ファイル書き出し」で端末に保存したバックアップファイル（.json）を選択し、選手データと記録枠をそのまま復元します。",
+    action: () => {
+      closeDecisionModal();
+      if (typeof triggerImportSaveDataFilePicker === "function") triggerImportSaveDataFilePicker();
+    }
+  });
+
+  // 📥 体験版（高校3年ドラフト直前データ）からの引継ぎ選択肢（製品版のみ表示）
   if (typeof IS_TRIAL_EDITION === "undefined" || !IS_TRIAL_EDITION) {
     let hasLocalTrial = false;
     try { hasLocalTrial = !!localStorage.getItem("baseball_sim_trial_transfer_v1"); } catch (e) {}
-    choices.unshift({
+    choices.push({
       text: "📥 体験版（高校3年・運命のドラフト直前データ）から引き継ぐ",
-      sub: hasLocalTrial ? "✨ 端末内に体験版クリアデータを検出！ワンタップまたは引継ぎコード・ファイルで即座にドラフト会議から再開します" : "体験版で発行された『高校卒業引継ぎコード』または『.bbinfファイル』を読み込み、運命のドラフト会議から再開します",
+      sub: hasLocalTrial ? "✨ 端末内に体験版クリアデータを検出！ワンタップまたは引継ぎコードでドラフト会議から再開します" : "体験版で発行された『6文字の引継ぎコード』を入力し、運命のドラフト会議から再開します",
       action: () => {
         closeDecisionModal();
         openTrialTransferImportModal();
@@ -31064,29 +31039,41 @@ function openLoadModal() {
     });
   }
 
-  choices.push({
-    text: "📂 バックアップファイル（.json）から復元する",
-    sub: "オプションの「ファイル書き出し」で保存した .json ファイルを選択してセーブ枠と選手データを復元します",
-    action: () => {
-      closeDecisionModal();
-      if (typeof triggerImportSaveDataFilePicker === "function") triggerImportSaveDataFilePicker();
+  choices.push(
+    {
+      text: "🗑️ セーブデータの削除（記録枠の個別消去・全初期化）",
+      sub: "古いバージョンのセーブデータや不要な記録枠を削除して整理します。",
+      action: () => {
+        closeDecisionModal();
+        openDeleteSaveDataModal("load");
+      }
+    },
+    {
+      text: "🔄 選手を新規作成して始める",
+      sub: "新しく野球人生をスタートします（ロッカールームへ移動）",
+      action: () => {
+        closeDecisionModal();
+        openCharCreate();
+      }
+    },
+    {
+      text: "↩ ゲームに戻る（読込せず閉じる）",
+      sub: "ロード画面を閉じて元のプレイ画面へ戻ります（ターン経過なし）。",
+      action: () => {
+        closeDecisionModal();
+        let isPlaying = (typeof turn !== 'undefined' && turn > 0 && typeof player !== 'undefined' && player && player.name);
+        if (!isPlaying) {
+          openCharCreate();
+        }
+      }
     }
-  });
-
-  // ⚾ 【Version 23.90 改修】新規選手作成へ戻る選択肢を常に配備
-  choices.push({
-    text: "🔄 選手を新規作成して始める",
-    sub: "新しく野球人生をスタートします（キャラクター作成へ戻る）",
-    action: () => {
-      closeDecisionModal();
-      openCharCreate();
-    }
-  });
+  );
 
   showDecisionModal(
-    "📂【球歴の再開読込】記録枠の選択",
-    "白球を握ったあの日からの軌跡へようこそ。再開する記録枠を選択してください。選手の全能力・獲得タイトルおよび実況ログが鮮やかに蘇ります。",
-    choices
+    "📂【球歴の再開読込・バックアップ復元】",
+    "再開する記録枠を選択するか、保存したバックアップファイル（.json）からの復元・データ整理を行えます。",
+    choices,
+    "option_no_hud"
   );
 }
 
@@ -31203,8 +31190,31 @@ function executeLoadFromSlot(slotKey, slotNum) {
     player.indieEntryAge = player.age;
   }
 
+  // 🌟【Version 24.30 セーブデータ自動アップグレード処理】
+  // 旧バージョンのセーブデータをロードした際も、投手時のミート巧打異常値修復や新オリジナル球団名への変換を即時適用する
+  let isP_load = (player.pos === "投手" || player.pos === "二刀流（投打）" || !!player.isTwoWay);
+  if (isP_load && !player.isTwoWay) {
+    let ageDeclineYears = Math.max(0, (player.age || 18) - (player.declineStartAge || 31));
+    let calcMeet = Math.max(30, Math.min(82, Math.round((player.ctl || 42) * 0.42 + (player.def || 36) * 0.35 - ageDeclineYears * 1.5)));
+    let calcPwr = Math.max(30, Math.min(88, Math.round(Math.max(0, (player.vel || 112) - 92) * 0.72 + (player.stuff || 40) * 0.35 - ageDeclineYears * 2.2)));
+    if (typeof player.meet !== "number" || isNaN(player.meet) || player.meet >= 85 || player.meet === player.vel) {
+      player.meet = calcMeet;
+    }
+    if (typeof player.pwr !== "number" || isNaN(player.pwr) || player.pwr >= 90 || player.pwr === player.ctl) {
+      player.pwr = calcPwr;
+    }
+  }
+  if (player.pennantStandings) {
+    initPennantStandings();
+  }
+  player.gameVersion = "Version 24.30";
+  let charModalEl = document.getElementById("charModal");
+  if (charModalEl) charModalEl.style.display = "none";
+  let gTitleEl = document.getElementById("grandTitleScreen");
+  if (gTitleEl) gTitleEl.classList.add("hidden");
+
   updateUI();
-  addLog(`📂【球歴再開】記録枠 ${slotNum} より選手の勇姿と実況ログ全履歴を鮮やかに復元しました！`, "crit");
+  addLog(`📂【球歴再開（Version 24.30 適用）】記録枠 ${slotNum} より『${player.name}』のデータを最新バージョン仕様へ自動更新して復元しました！`, "crit");
 }
 
 function loadGame() {
@@ -31336,108 +31346,8 @@ const OP_CUTS_DEF = [
 ];
 
 function playOpSynthesizedSE(type) {
-  if (typeof isMasterMuted !== "undefined" && isMasterMuted) return;
-  let ctx = (typeof getAudioContext === "function") ? getAudioContext() : null;
-  if (!ctx) return;
-  if (ctx.state === "suspended") {
-    try { ctx.resume(); } catch(e) {}
-  }
-  const bus = (typeof getRoyalMasterBus === "function") ? getRoyalMasterBus(ctx) : ctx.destination;
-  const now = ctx.currentTime;
-  if (type === "ping") {
-    [1760, 2637, 3520].forEach((f, idx) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = idx % 2 === 0 ? "sine" : "triangle";
-      osc.frequency.setValueAtTime(f, now);
-      osc.frequency.exponentialRampToValueAtTime(f * 0.985, now + 0.95);
-      gain.gain.setValueAtTime(0.11 / (idx + 1), now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 1.0);
-      osc.connect(gain); gain.connect(bus);
-      if (typeof royalReverbNode !== "undefined" && royalReverbNode) gain.connect(royalReverbNode);
-      osc.start(now); osc.stop(now + 1.05);
-    });
-  } else if (type === "stamp") {
-    // 🔏 リアル朱肉スタンプ：高域の木製クリック（カツンッ）＋重低音の捺印インパクト（ドンッ）
-    const clickOsc = ctx.createOscillator();
-    const clickGain = ctx.createGain();
-    clickOsc.type = "sine";
-    clickOsc.frequency.setValueAtTime(980, now);
-    clickOsc.frequency.exponentialRampToValueAtTime(340, now + 0.025);
-    clickGain.gain.setValueAtTime(0.18, now);
-    clickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
-    clickOsc.connect(clickGain); clickGain.connect(bus);
-    clickOsc.start(now); clickOsc.stop(now + 0.035);
-
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = "triangle";
-    osc.frequency.setValueAtTime(140, now);
-    osc.frequency.exponentialRampToValueAtTime(30, now + 0.16);
-    gain.gain.setValueAtTime(0.36, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
-    osc.connect(gain); gain.connect(bus);
-    osc.start(now); osc.stop(now + 0.19);
-  } else if (type === "gong") {
-    [110, 146.83, 155.56].forEach(f => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = "sawtooth";
-      osc.frequency.setValueAtTime(f, now);
-      osc.frequency.exponentialRampToValueAtTime(f * 0.92, now + 0.8);
-      gain.gain.setValueAtTime(0.08, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.85);
-      osc.connect(gain); gain.connect(bus);
-      if (typeof royalReverbNode !== "undefined" && royalReverbNode) gain.connect(royalReverbNode);
-      osc.start(now); osc.stop(now + 0.9);
-    });
-  } else if (type === "heartbeat") {
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = "sine";
-    osc.frequency.setValueAtTime(78, now);
-    osc.frequency.exponentialRampToValueAtTime(28, now + 0.2);
-    gain.gain.setValueAtTime(0.24, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
-    osc.connect(gain); gain.connect(bus);
-    osc.start(now); osc.stop(now + 0.23);
-  } else if (type === "sparkle_chime") {
-    // 🌟 キャラクター入団承認・能力抽選時の祝祭きらめきアルペジオチャイム
-    [622.25, 783.99, 932.33, 1244.51].forEach((f, idx) => {
-      const chOsc = ctx.createOscillator();
-      const chGain = ctx.createGain();
-      chOsc.type = "sine";
-      chOsc.frequency.setValueAtTime(f, now + idx * 0.045);
-      chGain.gain.setValueAtTime(0.09 / (idx + 1), now + idx * 0.045);
-      chGain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.045 + 0.55);
-      chOsc.connect(chGain); chGain.connect(bus);
-      if (typeof royalReverbNode !== "undefined" && royalReverbNode) chGain.connect(royalReverbNode);
-      chOsc.start(now + idx * 0.045); chOsc.stop(now + idx * 0.045 + 0.60);
-    });
-  } else if (type && type.startsWith("cut_swell_")) {
-    // 🎬 オープニング全7カット転換：OP統一テーマ『木星（ジュピター）』（変ホ長調 Eb Major）に完全調和するハープ＆シンバル倍音きらめき
-    const cutNum = parseInt(type.replace("cut_swell_", ""), 10) || 0;
-    const jupiterKeyChords = [
-      [155.56, 233.08, 311.13, 392.00, 466.16], // Cut 0: Eb Major (Warm Horn & Harp)
-      [207.65, 261.63, 311.13, 415.30, 523.25], // Cut 1: Ab Major Subdominant
-      [155.56, 233.08, 311.13, 466.16, 622.25], // Cut 2: Eb Major High
-      [233.08, 293.66, 349.23, 466.16, 587.33], // Cut 3: Bb Major Dominant
-      [155.56, 233.08, 311.13, 392.00, 622.25], // Cut 4: Eb Major Stadium Radiance
-      [207.65, 311.13, 415.30, 523.25, 622.25], // Cut 5: Ab6 -> Eb Grand Ascent
-      [155.56, 233.08, 311.13, 466.16, 783.99]  // Cut 6: Eb Major Infinity Finale
-    ];
-    const chord = jupiterKeyChords[cutNum % jupiterKeyChords.length];
-    if (typeof playOrchestraPercussion === "function" && (cutNum === 0 || cutNum >= 4)) {
-      playOrchestraPercussion(ctx, now, "timpani", 77.78);
-      if (cutNum >= 5) playOrchestraPercussion(ctx, now, "cymbal", 77.78);
-    }
-    chord.forEach((f, idx) => {
-      const startOff = idx * 0.04;
-      if (typeof playTone64 === "function") {
-        playTone64(ctx, f, now + startOff, 0.75, "concert_harp", 0.022, 0, -0.32 + idx * 0.16, 3000);
-      }
-    });
-  }
+  // 不快な合成効果音（ふぁーん等のノコギリ波・サイン波チャイム・スタンプ音）を完全廃止
+  return;
 }
 
 // 📱 スマホ縦画面でも16:9イラストの左右が一切切れずに100%の魅力が伝わる「デュアルレイヤー・シネマフレーム描画」
@@ -34134,7 +34044,12 @@ function resolveTeamUniformColorKey(teamName = "", category = "", stageKey = "")
 const UNIFORM_DYNAMIC_CANVAS_CACHE = {};
 
 function getDynamicallyTintedCharacterPortraitDataUrl(stageKey, colorKey) {
-  if (typeof document === 'undefined' || (typeof window !== 'undefined' && window.isHeadlessSim && !window.__testUniformTint)) return null;
+  // 固定Y座標による不自然な帽子ツートン分断・耳の赤染まりを防止するため、常に美しい原画Base64をそのまま返却する
+  if (typeof DEFAULT_PORTRAIT_BASE64 !== 'undefined') {
+    let cleanStage = stageKey || "pro";
+    return DEFAULT_PORTRAIT_BASE64[`player_${cleanStage}`] || DEFAULT_PORTRAIT_BASE64.player_pro || DEFAULT_PORTRAIT_BASE64.player || null;
+  }
+  return null;
   let cleanStage = stageKey || "pro";
   let cleanColor = colorKey || "c16_midnight";
   let cacheKey = `${cleanStage}_${cleanColor}`;
@@ -35023,7 +34938,7 @@ function resetCustomPortraits() {
 function getPlayerTeamUniformStyle(playerObj, options = {}) {
   let custom = null;
   try {
-    let saved = localStorage.getItem("sim_custom_uniform");
+    let saved = null;
     if (saved) custom = JSON.parse(saved);
   } catch(e) {}
 
@@ -36144,12 +36059,12 @@ function toggleFastForwardMode() {
 }
 </script>
 
-<!-- 🎵 64和音クラシック・ジュークボックス（全40曲サウンドテスト＆場面設定）モーダル -->
+<!-- 🎵 クラシック・ジュークボックス（全40曲サウンドテスト＆場面設定）モーダル -->
 <div class="modal-overlay" id="bgmJukeboxModal" style="display:none; z-index:3500;">
   <div class="modal-box" style="max-width:580px; width:94%; max-height:88vh; display:flex; flex-direction:column; padding:16px;">
     <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #334155; padding-bottom:10px; margin-bottom:12px;">
       <div>
-        <div style="font-size:15px; font-weight:bold; color:#ffd700;">🎵 64和音 クラシック・ジュークボックス</div>
+        <div style="font-size:15px; font-weight:bold; color:#ffd700;">🎵 クラシック・ジュークボックス</div>
         <div style="font-size:11px; color:#94a3b8;">日本人が愛する超定番・名曲全40曲 試聴＆場面BGM設定</div>
       </div>
       <button class="btn btn-sm" onclick="closeBgmJukeboxModal()" style="background:#475569; color:#fff; border:none; padding:4px 10px; border-radius:4px; cursor:pointer;">✕ 閉じる</button>
@@ -36157,13 +36072,7 @@ function toggleFastForwardMode() {
 
     <!-- 音響コントロールバー -->
     <div style="background:#090d16; border:1px solid #334155; border-radius:8px; padding:10px 14px; margin-bottom:12px;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; gap:8px;">
-        <span style="font-size:11px; color:#cbd5e1; font-weight:bold;">音響モード:</span>
-        <button id="btnPolyphonyMode" onclick="setPolyphonyVoiceMode(polyphonyVoiceMode === '64_orchestra' ? '32_classic' : '64_orchestra')" style="flex:1; background:#1e293b; color:#38bdf8; border:1px solid #38bdf8; border-radius:6px; padding:6px 10px; font-size:11px; cursor:pointer; text-align:center;">
-          🎻 <b>64和音 フルオーケストラ重層音響</b> [高音質]
-        </button>
-        <span id="jukeboxPolyphonyBadge" style="background:#059669; color:#fff; font-size:10px; font-weight:bold; padding:2px 8px; border-radius:12px; white-space:nowrap;">64和音 (立体音場)</span>
-      </div>
+
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
         <span style="font-size:11px; color:#cbd5e1; font-weight:bold;">現在再生中:</span>
         <span id="jukeboxCurrentTrackLabel" style="font-size:11px; color:#38bdf8; font-weight:bold;">#19 新世界より（家路）</span>
