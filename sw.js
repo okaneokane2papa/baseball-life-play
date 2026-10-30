@@ -1,4 +1,4 @@
-const CACHE_NAME = 'baseball-life-infinity-pwa-v2410';
+const CACHE_NAME = 'baseball-life-infinity-pwa-v2420';
 const ASSETS = [
   './',
   './index.html',
