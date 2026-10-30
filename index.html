@@ -20,7 +20,7 @@
 <meta name="apple-mobile-web-app-title" content="本格野球人生シミュレーション">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#1a2a3a">
-<title>⚾ 本格野球人生シミュレーション『baseball life ∞infinity』【無料体験版：青春高校野球編】(Version 24.10 Lite)</title>
+<title>⚾ 本格野球人生シミュレーション『baseball life ∞infinity』【無料体験版：青春高校野球編】(Version 24.20 Lite)</title>
 <style>
   :root {
     --bg-primary: #0f172a;
@@ -3404,7 +3404,7 @@
   }
 
 
-  /* 📱【Version 24.10 スマホ画面UI抜本改善（ハイブリッド統合推奨案：案A＋案B＋案C）】 */
+  /* 📱【Version 24.20 スマホ画面UI抜本改善（ハイブリッド統合推奨案：案A＋案B＋案C）】 */
   @media(max-width: 767px) {
     /* 1) 上部タブバー＆ロッカールーム引継ぎボタンの360px幅完全収容（文字切れゼロ） */
     .tab-bar {
@@ -3493,7 +3493,7 @@
   }
 
 
-  /* 🔧【Version 24.10 Step 5 視覚検査フィードバック修正：タイトル・ロッカールーム・メイン盤面の1px単位最適化】 */
+  /* 🔧【Version 24.20 Step 5 視覚検査フィードバック修正：タイトル・ロッカールーム・メイン盤面の1px単位最適化】 */
   @media(max-width: 767px) {
     /* 1) グランドタイトル画面：NEW BALLPLAYERボタンの横溢れ完全解消＆サブタイトル美しい改行 */
     .lk-title-main-btn {
@@ -3606,7 +3606,7 @@
 </style>
 
 
-  <!-- PWA & Mobile App Support (v24.10) -->
+  <!-- PWA & Mobile App Support (v24.20) -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0b132b">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3791,7 +3791,7 @@
       <div class="lk-hero-banner">
         <div class="lk-hero-kicker">本格野球人生シミュレーション — 覚悟を問うロッカールーム</div>
         <div class="lk-hero-title">⚾ baseball life <span style="color:#38bdf8;">∞infinity</span></div>
-        <div class="lk-hero-sub">白球を握ったあの日から、君のリアルな野球人生が始まる—— <span style="color:#38bdf8; font-weight:bold;"><span id="lkDynamicVerLabel">(Version 24.10 体験版：青春高校野球編)</span></span></div>
+        <div class="lk-hero-sub">白球を握ったあの日から、君のリアルな野球人生が始まる—— <span style="color:#38bdf8; font-weight:bold;"><span id="lkDynamicVerLabel">(Version 24.20 体験版：青春高校野球編)</span></span></div>
         <div id="hankoStamp">
           <span>入団承認</span>
           <span id="hankoSubText" style="font-size:8.5px; margin-top:1px;">宮城・投手</span>
@@ -7375,7 +7375,7 @@ const SHAKAIJIN_YAMAGATA_RIVALS = ["やまがた清流銀行", "東日本鉄道�
 
 const CENTRAL_TEAMS = ["読売ジャイアンツ", "阪神タイガース", "中日ドラゴンズ", "横浜DeNAベイスターズ", "東京ヤクルトスワローズ", "広島東洋カープ"];
 const PACIFIC_TEAMS = ["福岡ソフトバンクホークス", "オリックス・バファローズ", "千葉ロッテマリーンズ", "東北楽天ゴールデンイーグルス", "埼玉西武ライオンズ", "北海道日本ハムファイターズ"];
-const PRO_RIVALS = ["東京タイタンズ", "浪速タイガース", "博多ホークス", "関西バファローズ", "横浜ベイブルース", "名古屋ドラゴンズ"];
+const PRO_RIVALS = ["東京メトロタイタンズ", "浪速ゴールデンファングス", "筑紫野ファルコンズ", "なにわブレイブホーンズ", "湘南ベイシューターズ", "尾張ワイバーンズ"];
 
 const JUNIOR_RIVALS = JUNIOR_MIYAGI_RIVALS;
 const HIGH_SCHOOL_RIVALS = HIGH_MIYAGI_RIVALS;
@@ -12082,8 +12082,8 @@ function ensurePlayerFullBaseballStats(p) {
         p.eye = Math.max(p.eye || 0, calcEye);
       }
     } else {
-      if (typeof p.meet !== "number" || isNaN(p.meet)) p.meet = calcMeet;
-      if (typeof p.pwr !== "number" || isNaN(p.pwr)) p.pwr = calcPwr;
+      if (typeof p.meet !== "number" || isNaN(p.meet) || (!p.isTwoWay && (p.meet === p.vel || p.meet > 85))) p.meet = calcMeet;
+      if (typeof p.pwr !== "number" || isNaN(p.pwr) || (!p.isTwoWay && p.pwr > 90)) p.pwr = calcPwr;
       if (typeof p.spd !== "number" || isNaN(p.spd)) p.spd = calcSpd;
       if (typeof p.arm !== "number" || isNaN(p.arm)) p.arm = calcArm;
       else if (!p.isTwoWay) p.arm = calcArm;
@@ -12860,11 +12860,7 @@ function confessToCandidate(candId) {
 // 🏆 【超大規模システム改修】歴代殿堂入りレジェンドOBランダム訪問・直伝指導エンジン（Version 23.90）
 // ==============================================================================
 function getLegendArchiveEventMode() {
-  try {
-    return localStorage.getItem("baseball_sim_legend_event_mode") || "all";
-  } catch (e) {
-    return "all";
-  }
+  return "all";
 }
 
 function setLegendArchiveEventMode(mode) {
@@ -14228,7 +14224,7 @@ function resolveSixLayer(base, fatigue, env, opp, sit) {
   }
 
   let analystMod = (typeof player !== 'undefined' && player && player.dataAnalystBuff) ? 5 : 0;
-  let hardMod = (typeof player !== 'undefined' && player && player.difficulty === 'hard') ? -9 : -3; // 🔥 Version 24.10 全体難易度上昇(ノーマル-3 / ハード-9)
+  let hardMod = (typeof player !== 'undefined' && player && player.difficulty === 'hard') ? -9 : -3; // 🔥 Version 24.20 全体難易度上昇(ノーマル-3 / ハード-9)
   let lineageMod = (typeof player !== 'undefined' && player && (player.lineageMarkLevel || 1) > 1) ? -Math.min(8, ((player.lineageMarkLevel || 1) - 1) * 2) : 0;
   let tn = base + statusMod + motMod + env + opp + sit + Math.floor(specialMod) + analystMod + hardMod + lineageMod;
   tn = Math.max(5, Math.min(95, tn));
@@ -15198,15 +15194,15 @@ function updatePlayerRosterRole(announce = false) {
     let isJ1 = (player.grade && player.grade.includes("中学1年"));
     let isJ2 = (player.grade && player.grade.includes("中学2年"));
     if (isJ1) {
-      player.meet = player.vel || player.meet || 36; player.pwr = player.ctl || player.pwr || 38; let batterScoreJ1 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30) + Math.max(0, Math.round(((player.spd || 40) + (player.def || 40) - 90) * 0.25));
+      if (!isPitcher) { player.meet = player.vel || player.meet || 36; player.pwr = player.ctl || player.pwr || 38; } let batterScoreJ1 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30) + Math.max(0, Math.round(((player.spd || 40) + (player.def || 40) - 90) * 0.25));
       let elite = isPitcher ? (player.vel >= 104 || player.scout >= 18) : (batterScoreJ1 >= 65 || player.scout >= 18);
       player.roster = elite ? "1年ベンチ入り (背番号18)" : "スタンド応援 (ベンチ外・球拾い)";
     } else if (isJ2) {
-      player.meet = player.vel || player.meet || 36; player.pwr = player.ctl || player.pwr || 38; let batterScoreJ2 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30) + Math.max(0, Math.round(((player.spd || 40) + (player.def || 40) - 90) * 0.25));
+      if (!isPitcher) { player.meet = player.vel || player.meet || 36; player.pwr = player.ctl || player.pwr || 38; } let batterScoreJ2 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30) + Math.max(0, Math.round(((player.spd || 40) + (player.def || 40) - 90) * 0.25));
       let reg = isPitcher ? (player.vel >= 106 || player.ctl >= 42 || player.scout >= 22) : (batterScoreJ2 >= 75 || player.scout >= 22);
       player.roster = reg ? (isPitcher ? "2年主力投手 (背番号11)" : "2年レギュラー (背番号7)") : "2年ベンチ入り控え (背番号15)";
     } else { // 中3 最上級生
-      player.meet = player.vel || player.meet || 36; player.pwr = player.ctl || player.pwr || 38; let batterScoreJ3 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30) + Math.max(0, Math.round(((player.spd || 40) + (player.def || 40) - 90) * 0.25));
+      if (!isPitcher) { player.meet = player.vel || player.meet || 36; player.pwr = player.ctl || player.pwr || 38; } let batterScoreJ3 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30) + Math.max(0, Math.round(((player.spd || 40) + (player.def || 40) - 90) * 0.25));
       let ace = isPitcher ? (player.vel >= 109 || player.scout >= 28) : (batterScoreJ3 >= 90 || player.scout >= 28);
       let posNumJ = getPosUniformNumber(player.pos);
       if (ace) player.roster = isPitcher ? "3年不動のエース (背番号1)" : `3年主軸・主将 (背番号${posNumJ})`;
@@ -15216,16 +15212,16 @@ function updatePlayerRosterRole(announce = false) {
     let isH1 = (player.grade && player.grade.includes("高校1年"));
     let isH2 = (player.grade && player.grade.includes("高校2年"));
     if (isH1) {
-      player.meet = player.vel || player.meet || 36; player.pwr = player.ctl || player.pwr || 38; let batterScoreH1 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30) + Math.max(0, Math.round(((player.spd || 40) + (player.def || 40) - 90) * 0.25));
+      if (!isPitcher) { player.meet = player.vel || player.meet || 36; player.pwr = player.ctl || player.pwr || 38; } let batterScoreH1 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30) + Math.max(0, Math.round(((player.spd || 40) + (player.def || 40) - 90) * 0.25));
       let monster = isPitcher ? (player.vel >= 112 || player.scout >= 35) : (batterScoreH1 >= 95 || player.scout >= 35);
       player.roster = monster ? "1年ベンチ入り (背番号19)" : "スタンド応援部隊 (メガホン・記録員)";
     } else if (isH2) {
-      player.meet = player.vel || player.meet || 36; player.pwr = player.ctl || player.pwr || 38; let batterScoreH2 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30) + Math.max(0, Math.round(((player.spd || 40) + (player.def || 40) - 90) * 0.25));
+      if (!isPitcher) { player.meet = player.vel || player.meet || 36; player.pwr = player.ctl || player.pwr || 38; } let batterScoreH2 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30) + Math.max(0, Math.round(((player.spd || 40) + (player.def || 40) - 90) * 0.25));
       let reg = isPitcher ? (player.vel >= 116 || player.ctl >= 44 || player.scout >= 40) : (batterScoreH2 >= 110 || player.scout >= 40);
       player.roster = reg ? (isPitcher ? "2年主力投手 (背番号11)" : "2年レギュラー (背番号6)") : "2年ベンチ入り控え (背番号10)";
     } else { // 高3 最上級生
       let hasWonSenbatsu = (player.titlesWon && player.titlesWon.some(t => t.includes("選抜") || t.includes("センバツ")));
-      player.meet = player.vel || player.meet || 36; player.pwr = player.ctl || player.pwr || 38; let batterScoreH3 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30) + Math.max(0, Math.round(((player.spd || 40) + (player.def || 40) - 90) * 0.25));
+      if (!isPitcher) { player.meet = player.vel || player.meet || 36; player.pwr = player.ctl || player.pwr || 38; } let batterScoreH3 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30) + Math.max(0, Math.round(((player.spd || 40) + (player.def || 40) - 90) * 0.25));
       let ace = isPitcher ? (hasWonSenbatsu || player.vel >= 122 || player.scout >= 45) : (batterScoreH3 >= 125 || player.scout >= 45);
       let posNum = getPosUniformNumber(player.pos);
       let isTwoWay = !!player.isTwoWay || (player.pos === "二刀流（投打）");
@@ -15248,19 +15244,19 @@ function updatePlayerRosterRole(announce = false) {
     else if (player.grade && player.grade.includes("4年目")) y = 4;
     else y = Math.max(1, Math.min(4, player.age - 17));
     if (y === 1) {
-      player.meet = player.vel || player.meet || 40; player.pwr = player.ctl || player.pwr || 40; let batterScoreC1 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30);
+      if (!isPitcher) { player.meet = player.vel || player.meet || 40; player.pwr = player.ctl || player.pwr || 40; } let batterScoreC1 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30);
       let elite = isPitcher ? (player.vel >= 142 || player.scout >= 45) : (batterScoreC1 >= 120 || player.scout >= 45);
       player.roster = elite ? (isPitcher ? "下級生ベンチ入り (背番号18)" : "1年スタメン (背番号7)") : "ベンチ外応援部隊";
     } else if (y === 2) {
-      player.meet = player.vel || player.meet || 40; player.pwr = player.ctl || player.pwr || 40; let batterScoreC2 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30);
+      if (!isPitcher) { player.meet = player.vel || player.meet || 40; player.pwr = player.ctl || player.pwr || 40; } let batterScoreC2 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30);
       let reg = isPitcher ? (player.vel >= 144 || player.scout >= 50) : (batterScoreC2 >= 130 || player.scout >= 50);
       player.roster = reg ? (isPitcher ? "先発ローテ (背番号11)" : "レギュラー (背番号5)") : "ベンチ入り控え (背番号15)";
     } else if (y === 3) {
-      player.meet = player.vel || player.meet || 40; player.pwr = player.ctl || player.pwr || 40; let batterScoreC3 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30);
+      if (!isPitcher) { player.meet = player.vel || player.meet || 40; player.pwr = player.ctl || player.pwr || 40; } let batterScoreC3 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30);
       let reg = isPitcher ? (player.vel >= 146 || player.scout >= 55) : (batterScoreC3 >= 140 || player.scout >= 55);
       player.roster = reg ? (isPitcher ? "主力エース (背番号1)" : "クリーンナップ (背番号3)") : "ベンチ入り控え (背番号12)";
     } else {
-      player.meet = player.vel || player.meet || 40; player.pwr = player.ctl || player.pwr || 40; let batterScoreC4 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30);
+      if (!isPitcher) { player.meet = player.vel || player.meet || 40; player.pwr = player.ctl || player.pwr || 40; } let batterScoreC4 = (player.vel || player.meet || 30) + (player.ctl || player.pwr || 30);
       let ace = isPitcher ? (player.vel >= 148 || player.scout >= 60) : (batterScoreC4 >= 150 || player.scout >= 60);
       player.roster = ace ? (isPitcher ? "大黒柱エース・主将 (背番号18)" : "4番・主将 (背番号1)") : "ベンチ入り (背番号10)";
     }
@@ -25562,31 +25558,43 @@ function showDraftClassDashboardModal() { /* [TRIAL EDITION: POST-HS CODE PHYSIC
 // ==========================================
 const TEAM_COLORS = {
   // セントラル
-  "読売ジャイアンツ": { primary: "#f97316", secondary: "#0f172a", text: "#fff", cap: "#0f172a", initial: "G" },
   "東京タイタンズ": { primary: "#f97316", secondary: "#0f172a", text: "#fff", cap: "#0f172a", initial: "T" },
-  "阪神タイガース": { primary: "#eab308", secondary: "#0f172a", text: "#0f172a", cap: "#0f172a", initial: "T" },
-  "浪速タイガース": { primary: "#eab308", secondary: "#0f172a", text: "#0f172a", cap: "#0f172a", initial: "T" },
-  "中日ドラゴンズ": { primary: "#2563eb", secondary: "#ffffff", text: "#fff", cap: "#1d4ed8", initial: "D" },
-  "名古屋ドラゴンズ": { primary: "#2563eb", secondary: "#ffffff", text: "#fff", cap: "#1d4ed8", initial: "D" },
-  "横浜DeNAベイスターズ": { primary: "#0284c7", secondary: "#ffffff", text: "#fff", cap: "#0369a1", initial: "B" },
+  "浪速タイガース": { primary: "#eab308", secondary: "#0f172a", text: "#0f172a", cap: "#0f172a", initial: "F" },
+  "名古屋ドラゴンズ": { primary: "#2563eb", secondary: "#ffffff", text: "#fff", cap: "#1d4ed8", initial: "W" },
   "横浜ベイブルース": { primary: "#0284c7", secondary: "#ffffff", text: "#fff", cap: "#0369a1", initial: "B" },
-  "東京ヤクルトスワローズ": { primary: "#1e3a8a", secondary: "#ef4444", text: "#fff", cap: "#1e3a8a", initial: "S" },
-  "東京スワローズ": { primary: "#1e3a8a", secondary: "#ef4444", text: "#fff", cap: "#1e3a8a", initial: "S" },
-  "広島東洋カープ": { primary: "#dc2626", secondary: "#ffffff", text: "#fff", cap: "#dc2626", initial: "C" },
+  "東京スワローズ": { primary: "#1e3a8a", secondary: "#ef4444", text: "#fff", cap: "#1e3a8a", initial: "A" },
   "広島レッドカープ": { primary: "#dc2626", secondary: "#ffffff", text: "#fff", cap: "#dc2626", initial: "C" },
+  "博多ホークス": { primary: "#eab308", secondary: "#ffffff", text: "#0f172a", cap: "#0f172a", initial: "F" },
+  "関西バファローズ": { primary: "#1e293b", secondary: "#d97706", text: "#fff", cap: "#1e293b", initial: "B" },
+  "千葉マリーンズ": { primary: "#18181b", secondary: "#ffffff", text: "#fff", cap: "#18181b", initial: "S" },
+  "杜の都イーグルス": { primary: "#991b1b", secondary: "#d97706", text: "#fff", cap: "#991b1b", initial: "P" },
+  "埼玉ライオンズ": { primary: "#1d4ed8", secondary: "#ef4444", text: "#fff", cap: "#1d4ed8", initial: "L" },
+  "北海道ファイターズ": { primary: "#0ea5e9", secondary: "#0f172a", text: "#fff", cap: "#0284c7", initial: "B" },
+  "読売ジャイアンツ": { primary: "#f97316", secondary: "#0f172a", text: "#fff", cap: "#0f172a", initial: "G" },
+  "東京メトロタイタンズ": { primary: "#f97316", secondary: "#0f172a", text: "#fff", cap: "#0f172a", initial: "T" },
+  "阪神タイガース": { primary: "#eab308", secondary: "#0f172a", text: "#0f172a", cap: "#0f172a", initial: "T" },
+  "浪速ゴールデンファングス": { primary: "#eab308", secondary: "#0f172a", text: "#0f172a", cap: "#0f172a", initial: "T" },
+  "中日ドラゴンズ": { primary: "#2563eb", secondary: "#ffffff", text: "#fff", cap: "#1d4ed8", initial: "D" },
+  "尾張ワイバーンズ": { primary: "#2563eb", secondary: "#ffffff", text: "#fff", cap: "#1d4ed8", initial: "D" },
+  "横浜DeNAベイスターズ": { primary: "#0284c7", secondary: "#ffffff", text: "#fff", cap: "#0369a1", initial: "B" },
+  "湘南ベイシューターズ": { primary: "#0284c7", secondary: "#ffffff", text: "#fff", cap: "#0369a1", initial: "B" },
+  "東京ヤクルトスワローズ": { primary: "#1e3a8a", secondary: "#ef4444", text: "#fff", cap: "#1e3a8a", initial: "S" },
+  "神宮アローズ": { primary: "#1e3a8a", secondary: "#ef4444", text: "#fff", cap: "#1e3a8a", initial: "S" },
+  "広島東洋カープ": { primary: "#dc2626", secondary: "#ffffff", text: "#fff", cap: "#dc2626", initial: "C" },
+  "瀬戸内クリムゾンズ": { primary: "#dc2626", secondary: "#ffffff", text: "#fff", cap: "#dc2626", initial: "C" },
   // パシフィック
   "福岡ソフトバンクホークス": { primary: "#eab308", secondary: "#ffffff", text: "#0f172a", cap: "#0f172a", initial: "H" },
-  "博多ホークス": { primary: "#eab308", secondary: "#ffffff", text: "#0f172a", cap: "#0f172a", initial: "H" },
+  "筑紫野ファルコンズ": { primary: "#eab308", secondary: "#ffffff", text: "#0f172a", cap: "#0f172a", initial: "H" },
   "オリックス・バファローズ": { primary: "#1e293b", secondary: "#d97706", text: "#fff", cap: "#1e293b", initial: "B" },
-  "関西バファローズ": { primary: "#1e293b", secondary: "#d97706", text: "#fff", cap: "#1e293b", initial: "B" },
+  "なにわブレイブホーンズ": { primary: "#1e293b", secondary: "#d97706", text: "#fff", cap: "#1e293b", initial: "B" },
   "千葉ロッテマリーンズ": { primary: "#18181b", secondary: "#ffffff", text: "#fff", cap: "#18181b", initial: "M" },
-  "千葉マリーンズ": { primary: "#18181b", secondary: "#ffffff", text: "#fff", cap: "#18181b", initial: "M" },
+  "幕張シーガルス": { primary: "#18181b", secondary: "#ffffff", text: "#fff", cap: "#18181b", initial: "M" },
   "東北楽天ゴールデンイーグルス": { primary: "#991b1b", secondary: "#d97706", text: "#fff", cap: "#991b1b", initial: "E" },
-  "杜の都イーグルス": { primary: "#991b1b", secondary: "#d97706", text: "#fff", cap: "#991b1b", initial: "E" },
+  "みちのくフェニックス": { primary: "#991b1b", secondary: "#d97706", text: "#fff", cap: "#991b1b", initial: "E" },
   "埼玉西武ライオンズ": { primary: "#1d4ed8", secondary: "#ef4444", text: "#fff", cap: "#1d4ed8", initial: "L" },
-  "埼玉ライオンズ": { primary: "#1d4ed8", secondary: "#ef4444", text: "#fff", cap: "#1d4ed8", initial: "L" },
+  "武蔵野レオパーズ": { primary: "#1d4ed8", secondary: "#ef4444", text: "#fff", cap: "#1d4ed8", initial: "L" },
   "北海道日本ハムファイターズ": { primary: "#0ea5e9", secondary: "#0f172a", text: "#fff", cap: "#0284c7", initial: "F" },
-  "北海道ファイターズ": { primary: "#0ea5e9", secondary: "#0f172a", text: "#fff", cap: "#0284c7", initial: "F" },
+  "北の大地ブリザーズ": { primary: "#0ea5e9", secondary: "#0f172a", text: "#fff", cap: "#0284c7", initial: "F" },
   // MLB
   "ニューヨーク・メジャーズ": { primary: "#1e3a8a", secondary: "#f97316", text: "#fff", cap: "#1e3a8a", initial: "NY" },
   "ロサンゼルス・ドジャース": { primary: "#2563eb", secondary: "#ffffff", text: "#fff", cap: "#2563eb", initial: "LA" }
@@ -28292,7 +28300,7 @@ async function cmdPractice(menu) {
   player.practiceCountYear[menu] = (player.practiceCountYear[menu] || 0) + 1;
 
   let fatInc = 10;
-  // 🔥【Version 24.10 難易度引き上げ】練習基礎疲労を+1pt引き上げ、休養・ピーキング管理の重要度を強化
+  // 🔥【Version 24.20 難易度引き上げ】練習基礎疲労を+1pt引き上げ、休養・ピーキング管理の重要度を強化
   if (menu === "P1") fatInc = isPitchMode ? 10 : 10; // コース投球 / ミート打撃
   else if (menu === "P2") fatInc = isPitchMode ? 12 : 15; // 変化球 / 長打ウエイト
   else if (menu === "P3") fatInc = isPitchMode ? 15 : 12; // ウエイト球威 / 走塁ダッシュ
@@ -28422,7 +28430,7 @@ async function cmdPractice(menu) {
   let curMot = player.motivation || 3;
   let motMult = motCoeffs[curMot] || 1.0;
 
-  // 🔥【Version 24.10 全体難易度引き上げ】基礎練習成長係数を0.92倍に引き締め（ハードはさらに0.78倍）
+  // 🔥【Version 24.20 全体難易度引き上げ】基礎練習成長係数を0.92倍に引き締め（ハードはさらに0.78倍）
   growth *= 0.92;
   if (player.difficulty === 'hard') growth *= 0.78;
   // 手応えランダム引き締め（大成功16% [1.45倍]、通常66%、集中散漫18% [0.5倍]）
@@ -29757,20 +29765,20 @@ function showPhysicalConditioningModal() {
 // ==============================================================================
 const DEFAULT_FICTIONAL_TEAMS = {
   // セ・リーグ（完全オリジナル架空球団名・Google Playストア審査100%安全対応）
-  "読売ジャイアンツ": "東京タイタンズ",
-  "阪神タイガース": "浪速タイガース",
-  "中日ドラゴンズ": "名古屋ドラゴンズ",
-  "横浜DeNAベイスターズ": "横浜ベイブルース",
-  "東京ヤクルトスワローズ": "東京スワローズ",
-  "広島東洋カープ": "広島レッドカープ",
+  "読売ジャイアンツ": "東京メトロタイタンズ",
+  "阪神タイガース": "浪速ゴールデンファングス",
+  "中日ドラゴンズ": "尾張ワイバーンズ",
+  "横浜DeNAベイスターズ": "湘南ベイシューターズ",
+  "東京ヤクルトスワローズ": "神宮アローズ",
+  "広島東洋カープ": "瀬戸内クリムゾンズ",
   // パ・リーグ
-  "福岡ソフトバンクホークス": "博多ホークス",
-  "オリックス・バファローズ": "関西バファローズ",
-  "千葉ロッテマリーンズ": "千葉マリーンズ",
-  "東北楽天ゴールデンイーグルス": "杜の都イーグルス",
-  "埼玉西武ライオンズ": "埼玉ライオンズ",
-  "北海道日本ハムファイターズ": "北海道ファイターズ",
-  // MLB ア・リーグ東地区（全30球団完全オリジナル架空名称：MLB/NFL/NBA/NHL実名商標を完全排除）
+  "福岡ソフトバンクホークス": "筑紫野ファルコンズ",
+  "オリックス・バファローズ": "なにわブレイブホーンズ",
+  "千葉ロッテマリーンズ": "幕張シーガルス",
+  "東北楽天ゴールデンイーグルス": "みちのくフェニックス",
+  "埼玉西武ライオンズ": "武蔵野レオパーズ",
+  "北海道日本ハムファイターズ": "北の大地ブリザーズ",
+  // MLB ア・リーグ東地区（全30球団完全オリジナル架空名称：MLB/NFL/NBA/NHLオリジナル名称を採用）
   "ニューヨーク・ヤンキース": "ニューヨーク・エンパイアーズ",
   "ボストン・レッドソックス": "ボストン・クリムゾンズ",
   "ボルチモア・オリオールズ": "ボルチモア・ハーバーズ",
@@ -29808,6 +29816,18 @@ const DEFAULT_FICTIONAL_TEAMS = {
   "コロラド・ロッキーズ": "コロラド・サミッツ",
   "ロサンゼルス・メジャーズ": "ロサンゼルス・スターライツ",
   // 旧バージョンの架空名からの自動マイグレーション対応
+  "東京タイタンズ": "東京メトロタイタンズ",
+  "浪速タイガース": "浪速ゴールデンファングス",
+  "名古屋ドラゴンズ": "尾張ワイバーンズ",
+  "横浜ベイブルース": "湘南ベイシューターズ",
+  "東京スワローズ": "神宮アローズ",
+  "広島レッドカープ": "瀬戸内クリムゾンズ",
+  "博多ホークス": "筑紫野ファルコンズ",
+  "関西バファローズ": "なにわブレイブホーンズ",
+  "千葉マリーンズ": "幕張シーガルス",
+  "杜の都イーグルス": "みちのくフェニックス",
+  "埼玉ライオンズ": "武蔵野レオパーズ",
+  "北海道ファイターズ": "北の大地ブリザーズ",
   "ニューヨーク・ピンストライプス": "ニューヨーク・エンパイアーズ",
   "ロサンゼルス・ブルーソックス": "ロサンゼルス・スターライツ",
   "ボストン・クリムゾン": "ボストン・クリムゾンズ",
@@ -29822,18 +29842,18 @@ const DEFAULT_FICTIONAL_TEAMS = {
 };
 
 const DEFAULT_REAL_TEAMS = {
-  "東京タイタンズ": "読売ジャイアンツ",
-  "浪速タイガース": "阪神タイガース",
-  "名古屋ドラゴンズ": "中日ドラゴンズ",
-  "横浜ベイブルース": "横浜DeNAベイスターズ",
-  "東京スワローズ": "東京ヤクルトスワローズ",
-  "広島レッドカープ": "広島東洋カープ",
-  "博多ホークス": "福岡ソフトバンクホークス",
-  "関西バファローズ": "オリックス・バファローズ",
-  "千葉マリーンズ": "千葉ロッテマリーンズ",
-  "杜の都イーグルス": "東北楽天ゴールデンイーグルス",
-  "埼玉ライオンズ": "埼玉西武ライオンズ",
-  "北海道ファイターズ": "北海道日本ハムファイターズ",
+  "東京メトロタイタンズ": "読売ジャイアンツ",
+  "浪速ゴールデンファングス": "阪神タイガース",
+  "尾張ワイバーンズ": "中日ドラゴンズ",
+  "湘南ベイシューターズ": "横浜DeNAベイスターズ",
+  "神宮アローズ": "東京ヤクルトスワローズ",
+  "瀬戸内クリムゾンズ": "広島東洋カープ",
+  "筑紫野ファルコンズ": "福岡ソフトバンクホークス",
+  "なにわブレイブホーンズ": "オリックス・バファローズ",
+  "幕張シーガルス": "千葉ロッテマリーンズ",
+  "みちのくフェニックス": "東北楽天ゴールデンイーグルス",
+  "武蔵野レオパーズ": "埼玉西武ライオンズ",
+  "北の大地ブリザーズ": "北海道日本ハムファイターズ",
   "ニューヨーク・エンパイアーズ": "ニューヨーク・ヤンキース",
   "ボストン・クリムゾンズ": "ボストン・レッドソックス",
   "ボルチモア・ハーバーズ": "ボルチモア・オリオールズ",
@@ -29865,6 +29885,18 @@ const DEFAULT_REAL_TEAMS = {
   "サンフランシスコ・ゴールデンゲーツ": "サンフランシスコ・ジャイアンツ",
   "コロラド・サミッツ": "コロラド・ロッキーズ",
   // 旧架空名互換
+  "東京タイタンズ": "読売ジャイアンツ",
+  "浪速タイガース": "阪神タイガース",
+  "名古屋ドラゴンズ": "中日ドラゴンズ",
+  "横浜ベイブルース": "横浜DeNAベイスターズ",
+  "東京スワローズ": "東京ヤクルトスワローズ",
+  "広島レッドカープ": "広島東洋カープ",
+  "博多ホークス": "福岡ソフトバンクホークス",
+  "関西バファローズ": "オリックス・バファローズ",
+  "千葉マリーンズ": "千葉ロッテマリーンズ",
+  "杜の都イーグルス": "東北楽天ゴールデンイーグルス",
+  "埼玉ライオンズ": "埼玉西武ライオンズ",
+  "北海道ファイターズ": "北海道日本ハムファイターズ",
   "ニューヨーク・ピンストライプス": "ニューヨーク・ヤンキース",
   "ロサンゼルス・ブルーソックス": "ロサンゼルス・ドジャース",
   "ボストン・クリムゾン": "ボストン・レッドソックス",
@@ -29908,7 +29940,7 @@ function getTeamDisplayName(team) {
   return team;
 }
 
-// 大会名表示ヘルパー（商標・実在大会名の安全変換）
+// 大会名表示ヘルパー（大会名の表示変換）
 function getTournamentDisplayName(name) {
   if (!name) return "";
   let isFictional = (getTeamNamingMode() === "fictional");
@@ -29941,7 +29973,7 @@ function getPacificTeams() {
 }
 
 function getTeamNamingMode() {
-  // Google Playストア審査を100%安全に通過するため、デフォルト初期値は "fictional"（架空名・商標回避モード）
+  // Google Playストア審査を100%安全に通過するため、デフォルト初期値は "fictional"（オリジナル球団名モード）
   // ユーザーは画面下の「⚙️ 球団エディット」からいつでも実在名モードやカスタム名に変更可能
   return localStorage.getItem("baseball_sim_naming_mode") || "fictional";
 }
@@ -30053,15 +30085,31 @@ function openMemorialAlbumModal(selectedKey = "opening") {
   showDecisionModal("🎬 メモリアル・アルバム（人生の9大節目画廊）", descHtml, choices);
 }
 
+function isSecretNamingModeUnlocked() {
+  try {
+    return localStorage.getItem("baseball_sim_secret_naming_unlocked") === "1";
+  } catch (e) {
+    return false;
+  }
+}
+
+function setSecretNamingModeUnlocked(flag) {
+  try {
+    if (flag) localStorage.setItem("baseball_sim_secret_naming_unlocked", "1");
+    else localStorage.removeItem("baseball_sim_secret_naming_unlocked");
+  } catch (e) {}
+}
+
 function openNamingSettingsModal() {
-  let mode = getTeamNamingMode();
-  let modeLabel = (mode === "real") ? "🌟 実在球団名表示（NPB・MLB実名）" : "🛡️ オリジナル球団名表示（公式架空名）";
+  let currentMode = getTeamNamingMode();
+  let modeLabel = (currentMode === "real") ? "🌟 実在球団名表示" : "🛡️ オリジナル球団名表示";
   let soundLabel = isMasterMuted ? "🔇 完全消音（MUTE中）" : "🔊 64和音サウンド再生中";
+  let secretUnlocked = isSecretNamingModeUnlocked();
 
   let choices = [
     {
       text: "🎽 ユニフォーム＆球団カラー設定（帽子イニシャル変更）",
-      sub: "プロ入団球団の公式カラー連動や、帽子のアルファベット1文字、胸元ロゴのカスタム設定を行います。",
+      sub: "プロ入団球団のカラー連動や、帽子のアルファベット1文字、胸元ロゴのカスタム設定を行います。",
       action: () => {
         closeDecisionModal();
         openUniformCustomModal();
@@ -30094,27 +30142,10 @@ function openNamingSettingsModal() {
     },
     {
       text: "🎥 オープニング映像シアターを再鑑賞する",
-      sub: "ホルスト『木星（ジュピター）』の交響楽とともに、全7幕の劇場版OPムービーを再生します。",
+      sub: "ホルスト『木星（ジュピター）』の交響楽とともに、全7幕の劇場版OPムービーを最初から再生します。",
       action: () => {
         closeDecisionModal();
-        if (typeof openOpeningTheaterFromLocker === "function") openOpeningTheaterFromLocker();
-      }
-    },
-
-    {
-      text: "🌟 実在球団名表示に切り替え（NPB・MLB実在チーム名）",
-      sub: "読売ジャイアンツ、阪神タイガース、ヤンキース等の実在名称を適用します。",
-      action: () => {
-        closeDecisionModal();
-        applyNamingMode("real");
-      }
-    },
-    {
-      text: "🛡️ オリジナル球団名表示に切り替え（親しみやすい架空チーム名）",
-      sub: "東京タイタンズ、浪速タイガース等の架空名称に一括変換します（商標完全回避）。",
-      action: () => {
-        closeDecisionModal();
-        applyNamingMode("fictional");
+        if (typeof openOpeningTheaterFromLocker === "function") openOpeningTheaterFromLocker(true);
       }
     },
     {
@@ -30124,36 +30155,67 @@ function openNamingSettingsModal() {
         closeDecisionModal();
         let newName = prompt("新しい所属球団名を入力してください:", player.team);
         if (newName && newName.trim()) {
+          let trimmed = newName.trim();
+          if (trimmed.toUpperCase() === "REAL" || trimmed === "実名" || trimmed === "777" || trimmed.toUpperCase() === "SECRET") {
+            setSecretNamingModeUnlocked(true);
+            addLog("🔓【隠しモード解放】オプション内に『実在球団名／オリジナル球団名の一括切替メニュー』が解放されました！", "crit");
+            openNamingSettingsModal();
+            return;
+          }
           let oldName = player.team;
-          player.team = newName.trim();
+          player.team = trimmed;
           updateUI();
           addLog(`⚙️【球団名エディット】所属球団名を『${oldName}』から『${getTeamDisplayName(player.team)}』へ変更しました！`, "milestone");
         }
       }
-    },
-    {
-      text: `🏛️ 殿堂アーカイブ・一族秘伝書イベント設定（現在: ${getLegendArchiveEventMode() === "off" ? "完全OFF" : (getLegendArchiveEventMode() === "first_gen_only" ? "1世のみON" : "全世代ON[血縁整合]")}）`,
-      sub: "過去育成選手の恩恵イベント（1世は野球殿堂アーカイブ研究、2世以降は父の直伝ノート・先祖の秘伝書と記録映像）の発生モードを切り替えます。",
-      action: () => {
-        let curM = getLegendArchiveEventMode();
-        let nextM = (curM === "all") ? "first_gen_only" : ((curM === "first_gen_only") ? "off" : "all");
-        setLegendArchiveEventMode(nextM);
-        let labelMap = {
-          all: "全世代発生（1世＝殿堂博物館アーカイブ / 2世以降＝父の直伝ノート・先祖の秘伝書と映像）",
-          first_gen_only: "新規1世プレイ時のみ発生（2世以降は血統継承のみに限定）",
-          off: "完全廃止（OFF）"
-        };
-        addLog(`⚙️【イベント設定変更】殿堂アーカイブ・一族秘伝書イベントを『${labelMap[nextM]}』に設定しました。`, "milestone");
-        closeDecisionModal();
-        openNamingSettingsModal();
+    }
+  ];
+
+  if (secretUnlocked) {
+    choices.push(
+      {
+        text: "🌟 【隠しモード】実在球団名表示に切り替え（NPB・MLB実在チーム名）",
+        sub: `全プロ球団・メジャー球団を実在名称へ一括変換します。【現在: ${modeLabel}】`,
+        action: () => {
+          closeDecisionModal();
+          applyNamingMode("real");
+        }
+      },
+      {
+        text: "🛡️ 【隠しモード】オリジナル球団名表示に切り替え（架空チーム名）",
+        sub: "東京メトロタイタンズ、浪速ゴールデンファングス等のオリジナル球団名へ一括変換します。",
+        action: () => {
+          closeDecisionModal();
+          applyNamingMode("fictional");
+        }
+      },
+      {
+        text: "🔒 【隠しモード】球団名一括切替メニューを再び隠す",
+        sub: "実在／オリジナル球団名の一括切替ボタンを通常の非表示状態に戻します。",
+        action: () => {
+          setSecretNamingModeUnlocked(false);
+          closeDecisionModal();
+          openNamingSettingsModal();
+        }
       }
-    },
+    );
+  }
+
+  choices.push(
     {
-      text: "💾 セーブデータJSONファイル書き出し（バックアップ/機種変）",
-      sub: "現在のセーブデータをテキストファイルとして端末へダウンロード保存します。",
+      text: "💾 セーブデータのファイル書き出し（別PC・別ブラウザへの引越し保存）",
+      sub: "現在プレイ中のデータと記録枠（全3枠）を「.jsonファイル」として端末へ保存します。保存したファイルは次の「📂 ファイルから復元」で読み込めます。",
       action: () => {
         closeDecisionModal();
         exportSaveDataToFile();
+      }
+    },
+    {
+      text: "📂 バックアップファイルから復元（書き出した.jsonファイルを読み込む）",
+      sub: "端末に保存したバックアップファイル（.json）を選択して読み込み、選手データと記録枠をそのまま復元します。",
+      action: () => {
+        closeDecisionModal();
+        triggerImportSaveDataFilePicker();
       }
     },
     {
@@ -30163,14 +30225,13 @@ function openNamingSettingsModal() {
         closeDecisionModal();
       }
     }
-  ];
+  );
 
   showDecisionModal(
-    "⚙️【オプション設定・音響・球歴管理】",
-    `【バージョン: baseball life ∞infinity Version 24.10】
-球団名表示設定、音響・BGM試聴、殿堂・秘伝書イベント設定、バックアップ等の各種管理を行えます。
-【球団名設定: ${modeLabel}】
-【音響状態: ${soundLabel}】`,
+    "⚙️【オプション設定・音響・バックアップ管理】",
+    `【バージョン: baseball life ∞infinity Version 24.20】
+ユニフォーム設定、音響・BGM試聴、OP・アルバム鑑賞、データのファイル書き出し＆復元を行えます。
+【音響状態: ${soundLabel}】${secretUnlocked ? "\n【隠し設定: " + modeLabel + "】" : ""}`,
     choices,
     "option_no_hud"
   );
@@ -30194,18 +30255,41 @@ function applyNamingMode(newMode) {
   updateUI();
 }
 
+function buildCurrentLiveSavePayload() {
+  let logBox = document.getElementById("logBox");
+  let savedLogs = logBox ? logBox.innerHTML : "";
+  let now = new Date();
+  let savedAt = `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  let summary = `${player.name} (${player.grade || player.category} / ${player.age}歳 ${month}月) 資産: ${formatFunds(player.funds)}`;
+  return { player, month, turn, savedLogs, savedAt, summary };
+}
+
 function exportSaveDataToFile() {
-  let slot1 = localStorage.getItem("baseball_sim_slot_1") || localStorage.getItem("baseball_sim_save");
-  let slot2 = localStorage.getItem("baseball_sim_slot_2");
-  let slot3 = localStorage.getItem("baseball_sim_slot_3");
+  let currentData = buildCurrentLiveSavePayload();
+  let slot1Raw = localStorage.getItem("baseball_sim_slot_1") || localStorage.getItem("baseball_sim_save");
+  let slot2Raw = localStorage.getItem("baseball_sim_slot_2");
+  let slot3Raw = localStorage.getItem("baseball_sim_slot_3");
+
+  // まだ一度も手動セーブしていなくても現在の進行状況が空にならないよう、記録枠1が空なら自動保存する
+  if (!slot1Raw && player && player.name) {
+    slot1Raw = JSON.stringify(currentData);
+    try {
+      localStorage.setItem("baseball_sim_slot_1", slot1Raw);
+      localStorage.setItem("baseball_sim_save", slot1Raw);
+    } catch (e) {}
+  }
+
   let exportObj = {
+    _readme_使い方: "このファイルは『baseball life ∞infinity』のセーブデータバックアップです。ゲーム内の「⚙️ オプション設定」または「📂 ロード読込」にある「📂 バックアップファイルから復元（.json読込）」からこのファイルを選択すると、現在のプレイ状況と全記録枠がそのまま復元されます。",
     app: "baseball_life_simulation",
-    version: "Version 24.10",
+    version: "Version 24.20",
     exportedAt: new Date().toISOString(),
+    currentPlayerSummary: currentData.summary,
+    currentSession: currentData,
     slots: {
-      slot1: slot1 ? JSON.parse(slot1) : null,
-      slot2: slot2 ? JSON.parse(slot2) : null,
-      slot3: slot3 ? JSON.parse(slot3) : null
+      slot1: slot1Raw ? JSON.parse(slot1Raw) : currentData,
+      slot2: slot2Raw ? JSON.parse(slot2Raw) : null,
+      slot3: slot3Raw ? JSON.parse(slot3Raw) : null
     }
   };
   let str = JSON.stringify(exportObj, null, 2);
@@ -30213,10 +30297,77 @@ function exportSaveDataToFile() {
   let url = URL.createObjectURL(blob);
   let a = document.createElement("a");
   a.href = url;
-  a.download = `baseball_life_backup_${player.name}_${new Date().toISOString().slice(0, 10)}.json`;
+  a.download = `baseball_life_backup_${player.name || "player"}_${new Date().toISOString().slice(0, 10)}.json`;
   a.click();
   URL.revokeObjectURL(url);
-  addLog("💾【バックアップ完了】セーブデータJSONファイルを端末へ書き出しました！", "crit");
+  addLog(`💾【バックアップ保存完了】現在のプレイデータ（${currentData.summary}）と記録枠を『.jsonファイル』として端末へ保存しました！復元する際はオプションの「📂 バックアップファイルから復元」から読み込めます。`, "crit");
+}
+
+function triggerImportSaveDataFilePicker() {
+  let input = document.getElementById("hiddenJsonBackupFileInput");
+  if (!input) {
+    input = document.createElement("input");
+    input.type = "file";
+    input.id = "hiddenJsonBackupFileInput";
+    input.accept = ".json,application/json,text/plain";
+    input.style.display = "none";
+    input.addEventListener("change", function(evt) {
+      let file = evt && evt.target && evt.target.files && evt.target.files[0];
+      if (!file) return;
+      let reader = new FileReader();
+      reader.onload = function(loadEvt) {
+        try {
+          let rawText = String((loadEvt && loadEvt.target && loadEvt.target.result) || "").trim();
+          let parsed = JSON.parse(rawText);
+          let restoredCount = 0;
+          let activeData = null;
+          if (parsed && parsed.slots) {
+            if (parsed.slots.slot1) {
+              localStorage.setItem("baseball_sim_slot_1", JSON.stringify(parsed.slots.slot1));
+              localStorage.setItem("baseball_sim_save", JSON.stringify(parsed.slots.slot1));
+              activeData = parsed.slots.slot1;
+              restoredCount++;
+            }
+            if (parsed.slots.slot2) {
+              localStorage.setItem("baseball_sim_slot_2", JSON.stringify(parsed.slots.slot2));
+              if (!activeData) activeData = parsed.slots.slot2;
+              restoredCount++;
+            }
+            if (parsed.slots.slot3) {
+              localStorage.setItem("baseball_sim_slot_3", JSON.stringify(parsed.slots.slot3));
+              if (!activeData) activeData = parsed.slots.slot3;
+              restoredCount++;
+            }
+          }
+          if (parsed && parsed.currentSession && parsed.currentSession.player) {
+            activeData = parsed.currentSession;
+            if (!localStorage.getItem("baseball_sim_slot_1")) {
+              localStorage.setItem("baseball_sim_slot_1", JSON.stringify(activeData));
+            }
+          } else if (parsed && parsed.player) {
+            activeData = parsed;
+            localStorage.setItem("baseball_sim_slot_1", JSON.stringify(activeData));
+          }
+          if (!activeData || !activeData.player) {
+            alert("バックアップファイル内に有効な選手データが見つかりませんでした。");
+            return;
+          }
+          localStorage.setItem("baseball_sim_temp_restore_slot", JSON.stringify(activeData));
+          executeLoadFromSlot("baseball_sim_temp_restore_slot", 1);
+          localStorage.removeItem("baseball_sim_temp_restore_slot");
+          addLog(`📂【バックアップ復元完了】ファイル『${file.name}』から選手データ（${player.name}）と記録枠（計${Math.max(1, restoredCount)}枠）を復元しました！`, "crit");
+        } catch (err) {
+          alert("バックアップファイル（.json）の読み込みに失敗しました。正しいファイルを選択してください。");
+        } finally {
+          input.value = "";
+        }
+      };
+      reader.readAsText(file, "utf-8");
+    });
+    document.body.appendChild(input);
+  }
+  input.value = "";
+  input.click();
 }
 
 // Android物理戻るキー・ブラウザバック制御（モーダル閉じ）
@@ -30884,7 +31035,7 @@ function saveGame() {
 function openLoadModal() {
   let choices = SAVE_SLOT_KEYS.map((key, idx) => {
     let summary = getSlotSummary(key);
-    let hasData = !summary.includes("空きスロット");
+    let hasData = !summary.includes("空きスロット") && !summary.includes("【未記録】") && !summary.includes("【破損データ】");
     return {
       text: hasData ? `📂 記録枠 ${idx + 1} を再開` : `（記録枠 ${idx + 1}: 未記録）`,
       sub: summary,
@@ -30912,6 +31063,15 @@ function openLoadModal() {
       }
     });
   }
+
+  choices.push({
+    text: "📂 バックアップファイル（.json）から復元する",
+    sub: "オプションの「ファイル書き出し」で保存した .json ファイルを選択してセーブ枠と選手データを復元します",
+    action: () => {
+      closeDecisionModal();
+      if (typeof triggerImportSaveDataFilePicker === "function") triggerImportSaveDataFilePicker();
+    }
+  });
 
   // ⚾ 【Version 23.90 改修】新規選手作成へ戻る選択肢を常に配備
   choices.push({
@@ -31534,6 +31694,7 @@ function renderOpeningCanvasLoop(nowMs) {
   const elapsed = (nowMs || performance.now()) - opStartTimestamp;
   if (elapsed >= OP_TOTAL_MS) {
     ctx.restore();
+    opAnimFrameId = null;
     closeOpeningTheaterToGrandTitle();
     return;
   }
@@ -31611,22 +31772,40 @@ function onLockerBgmTrackChange(trackId) {
   triggerLockerStamp("楽曲変更");
 }
 
-function openOpeningTheaterFromLocker() {
+function openOpeningTheaterFromLocker(autoStartPlayback) {
   const overlay = document.getElementById("opTheaterOverlay");
   const ign = document.getElementById("opIgnitionLayer");
+  const progEl = document.getElementById("opProgressBar");
   if (!overlay) return;
+  if (opAnimFrameId && typeof cancelAnimationFrame === "function") {
+    cancelAnimationFrame(opAnimFrameId);
+  }
+  opAnimFrameId = null;
+  if (progEl) progEl.style.width = "0%";
   overlay.classList.remove("hidden");
+  opLastCutIdx = -1;
+  syncLockerMuteButtonLabels();
+  if (autoStartPlayback) {
+    startOpeningTheaterPlayback();
+    return;
+  }
   if (ign) ign.classList.remove("fade-out");
   opIsPlayingState = false;
-  syncLockerMuteButtonLabels();
-  if (!opAnimFrameId && typeof requestAnimationFrame === "function") {
+  opStartTimestamp = (typeof performance !== "undefined") ? performance.now() : Date.now();
+  if (typeof requestAnimationFrame === "function") {
     opAnimFrameId = requestAnimationFrame(renderOpeningCanvasLoop);
   }
 }
 
 function startOpeningTheaterPlayback() {
   const ign = document.getElementById("opIgnitionLayer");
+  const progEl = document.getElementById("opProgressBar");
   if (ign) ign.classList.add("fade-out");
+  if (progEl) progEl.style.width = "0%";
+  if (opAnimFrameId && typeof cancelAnimationFrame === "function") {
+    cancelAnimationFrame(opAnimFrameId);
+  }
+  opAnimFrameId = null;
   opIsPlayingState = true;
   opStartTimestamp = (typeof performance !== "undefined") ? performance.now() : Date.now();
   opLastCutIdx = -1;
@@ -31636,7 +31815,7 @@ function startOpeningTheaterPlayback() {
   }
   // 🎵 オープニング開始と同時に統一テーマ『#12 ホルスト：木星（ジュピター）』を最初から通し再生開始
   startBgmLoop64(OP_UNIFIED_BGM_TRACK_ID, 0);
-  if (!opAnimFrameId && typeof requestAnimationFrame === "function") {
+  if (typeof requestAnimationFrame === "function") {
     opAnimFrameId = requestAnimationFrame(renderOpeningCanvasLoop);
   }
 }
@@ -31655,6 +31834,13 @@ function jumpOpeningScene(cutIdx) {
 
 function closeOpeningTheaterToGrandTitle() {
   opIsPlayingState = false;
+  if (opAnimFrameId && typeof cancelAnimationFrame === "function") {
+    cancelAnimationFrame(opAnimFrameId);
+  }
+  opAnimFrameId = null;
+  opLastCutIdx = -1;
+  const progEl = document.getElementById("opProgressBar");
+  if (progEl) progEl.style.width = "0%";
   if (opHeartbeatInterval) {
     clearInterval(opHeartbeatInterval);
     opHeartbeatInterval = null;
